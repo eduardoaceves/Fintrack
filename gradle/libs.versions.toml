@@ -1,0 +1,189 @@
+# libs.versions.toml
+# Copyright (c) 2026. All rights reserved
+[versions]
+# App Settings
+app-version-code = "1"
+app-version-name = "1.0.0"
+app-packg-name = "com.uagr.kmp.course"
+# versions
+android-compileSdk = "37"
+android-minSdk = "24"
+android-targetSdk = "37"
+# Libraries
+lib-androidx-activity = "1.13.0"
+lib-androidx-appcompat = "1.8.0"
+lib-androidx-core = "1.19.0"
+lib-lifecycle-viewmodel = "2.11.0"
+lib-lifecycle-viewmodel-compose = "2.11.0"
+lifecycle-runtime-compose = "2.11.0"
+lib-androidx-navigation = "2.9.2"
+lib-ui-tooling = "1.12.0"
+lib-compose-material3 = "1.9.0"
+lib-junit = "4.13.2"
+lib-splashscreen = "1.2.0"
+lib-material = "1.14.0"
+lib-voyager = "2.2.21-1.10.3"
+lib-napier = "2.7.1"
+lib-koin = "4.2.2"
+lib-koin-annotations = "4.2.2"
+lib-ktor = "3.6.0"
+lib-ktor-okhttp = "3.6.0"
+lib-ktor-darwin = "3.6.0"
+lib-ktor-auth = "3.6.0"
+lib-sqlite = "2.7.1"
+lib-okhttp-profiler = "1.1.1"
+lib-room = "2.8.5"
+lib-datastore = "1.2.1"
+# Plugins
+lib-agp = "9.2.1"
+lib-composeMultiplatform = "1.12.0"
+lib-kotlin = "2.4.20"
+lib-ksp = "2.3.10"
+lib-koin-compiler = "1.2.1"
+# Test
+junit = "1.3.0"
+espressoCore = "3.7.0"
+kotlinStdlib = "2.4.20"
+runner = "1.7.0"
+core = "1.7.0"
+
+[libraries]
+# AndroidX
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "lib-androidx-core" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "lib-androidx-appcompat" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "lib-androidx-activity" }
+androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "lib-lifecycle-viewmodel" }
+androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lib-lifecycle-viewmodel-compose" }
+androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime-compose" }
+androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "lib-androidx-navigation" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "lib-splashscreen" }
+google-material = { module = "com.google.android.material:material", version.ref = "lib-material" }
+
+# Compose
+compose-uiTooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "lib-ui-tooling" }
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "lib-composeMultiplatform" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "lib-composeMultiplatform" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "lib-compose-material3" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "lib-composeMultiplatform" }
+compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "lib-composeMultiplatform" }
+compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "lib-composeMultiplatform" }
+
+# Voyager
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "lib-voyager" }
+voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "lib-voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "lib-voyager" }
+voyager-tab-navigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "lib-voyager" }
+
+# Logs
+napier = { module = "io.github.aakira:napier", version.ref = "lib-napier" }
+
+# Koin
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "lib-koin" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "lib-koin" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version = "4.2.2" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "lib-koin" }
+
+# Ktor
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "lib-ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "lib-ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "lib-ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "lib-ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "lib-ktor-okhttp" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "lib-ktor-darwin" }
+ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "lib-ktor-auth" }
+
+# Room
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "lib-sqlite" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "lib-room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "lib-room" }
+
+# Okhttp
+okhttp-profiler = { module = "io.nerdythings:okhttp-profiler", version.ref = "lib-okhttp-profiler" }
+
+# Data store
+androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "lib-datastore" }
+
+# Test
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "lib-kotlin" }
+junit = { module = "junit:junit", version.ref = "lib-junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
+
+[bundles]
+sharedUI-commons-libs = [
+    # Compose
+    'compose-runtime',
+    'compose-foundation',
+    'compose-material3',
+    'compose-ui',
+    'compose-components-resources',
+    'compose-uiToolingPreview',
+    # Lifecycle
+    'androidx-lifecycle-viewmodel',
+    'androidx-lifecycle-viewmodel-compose',
+    'androidx-lifecycle-runtime-compose',
+    # Navigation
+    'androidx-navigation-compose',
+    'voyager-navigator',
+    'voyager-screenmodel',
+    'voyager-transitions',
+    'voyager-tab-navigator',
+    # Koin
+    'koin-core',
+    'koin-compose-viewmodel',
+    'koin-annotations',
+    # Ktor
+    'ktor-client-core',
+    'ktor-client-logging',
+    'ktor-client-content-negotiation',
+    'ktor-serialization-kotlinx-json',
+    'ktor-auth',
+    # Okhttp
+    'okhttp-profiler',
+    # Room
+    'androidx-room-runtime',
+    'androidx-sqlite-bundled',
+    # Persistence
+    'androidx-datastore',
+]
+sharedUI-android-libs = [
+    'androidx-core-ktx',
+    'androidx-appcompat',
+    # Logs
+    'napier',
+    # Koin Android
+    'koin-android',
+    # Ktor OkHttp
+    'ktor-client-okhttp',
+]
+sharedUI-ios-libs = [
+    # Ktor Darwin
+    'ktor-client-darwin',
+]
+sharedUI-commonsTest-libs = [
+    'kotlin-test',
+]
+androidApp-libs = [
+    'google-material',
+    'androidx-activity-compose',
+    'androidx-splashscreen',
+    # Logs
+    'napier',
+    # Koin
+    'koin-android',
+]
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "lib-agp" }
+androidMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "lib-agp" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "lib-composeMultiplatform" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "lib-kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "lib-kotlin" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "lib-kotlin" }
+androidx-room = { id = "androidx.room", version.ref = "lib-room" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "lib-kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "lib-ksp" }
+koinCompiler = { id = "io.insert-koin.compiler.plugin", version.ref = "lib-koin-compiler" }

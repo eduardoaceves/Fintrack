@@ -1,0 +1,5 @@
+com.uagr.kmp.course.shared-androidMain-0 /home/eaceves/AndroidStudioProjects/2026/Fintrack/uagr-kmp-course_2/shared/build/generated/updated_navigation_xml/androidMain/res
+com.uagr.kmp.course.shared-packageAndroidMainResources-1 /home/eaceves/AndroidStudioProjects/2026/Fintrack/uagr-kmp-course_2/shared/build/intermediates/incremental/androidMain/packageAndroidMainResources/merged.dir
+com.uagr.kmp.course.shared-packageAndroidMainResources-2 /home/eaceves/AndroidStudioProjects/2026/Fintrack/uagr-kmp-course_2/shared/build/intermediates/incremental/androidMain/packageAndroidMainResources/stripped.dir
+com.uagr.kmp.course.shared-packageAndroidMainResources-3 /home/eaceves/AndroidStudioProjects/2026/Fintrack/uagr-kmp-course_2/shared/build/intermediates/packaged_res/androidMain/packageAndroidMainResources/res
+gradleHome-0 /home/eaceves/.gradle

@@ -1,0 +1,49 @@
+<resources>
+
+    <!-- Generics -->
+    <string name="example">Example</string>
+    <string name="empty_field">Campo requerido</string>
+    <string name="email_wrong_format">Formato incorrecto</string>
+    <string name="empty_value" />
+    <string name="Accept">Aceptar</string>
+    <string name="Cancel">Cancelar</string>
+
+    <!-- Error -->
+    <string name="error">Error</string>
+    <string name="please_try_again_later">Please try again later</string>
+
+    <!-- Welcome -->
+    <string name="hello">¡Hello!</string>
+    <string name="explore_our_multiplatform_platform">Explore our multi platform</string>
+    <string name="go_to_login">Go to login</string>
+
+    <!-- Login -->
+    <string name="login_title">FinTrack</string>
+    <string name="login_description">Tus finanzas, claras incluso sin conexión.</string>
+    <string name="login_ammount">$ --</string>
+    <string name="login_balance">Balance disponible.</string>
+    <string name="login_email">Correo</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_button">Iniciar sesión</string>
+    <string name="login_create_account">Crear una cuenta</string>
+    <string name="login_email_example">example@gmail.com</string>
+    <string name="login_password_example">**********</string>
+
+    <!-- Register -->
+    <string name="register_title">FinTrack</string>
+    <string name="register_description">Tus finanzas, claras incluso sin conexión.</string>
+    <string name="register_name">Nombre</string>
+    <string name="register_email">Correo</string>
+    <string name="register_password">Contraseña</string>
+    <string name="register_confirm_password">Confirmar contraseña</string>
+    <string name="register_wrong_passwords">Contraseña no coinciden</string>
+    <string name="register_button">Registar usuario</string>
+
+    <!-- Welcome -->
+    <string name="welcome">Welcome</string>
+
+    <!-- Packages -->
+    <string name="empty_packages">Empty packages</string>
+    <string name="active_packages">Active packages</string>
+
+</resources>

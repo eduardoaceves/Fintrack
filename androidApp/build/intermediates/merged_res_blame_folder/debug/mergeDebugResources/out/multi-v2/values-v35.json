@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.uagr.kmp.course.android.androidApp-mergeDebugResources-62:/values-v35/values-v35.xml",
+            "map": [
+                {
+                    "source": "/home/eaceves/.gradle/caches/9.7.1/transforms/b3f72c7c4ecf76b6fc60a0abb883ad57/transformed/material-1.14.0/res/values-v35/values-v35.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,149,247,349",
+                        "endColumns": "93,97,101,99",
+                        "endOffsets": "144,242,344,444"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3" xmlns:tools="http://schemas.android.com/tools"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res"><file name="ic_launcher_foreground" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/values/themes.xml" qualifiers=""><style name="Base.Theme.Kmp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+        
+        <item name="colorSecondary">@color/md_theme_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
+        
+        <item name="colorTertiary">@color/md_theme_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_onTertiaryContainer</item>
+        
+        <item name="colorError">@color/md_theme_error</item>
+        <item name="colorErrorContainer">@color/md_theme_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_onErrorContainer</item>
+        
+        <item name="android:colorBackground">@color/md_theme_background</item>
+        <item name="colorOnBackground">@color/md_theme_onBackground</item>
+        
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
+        
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+    </style><style name="Theme.Kmp" parent="Base.Theme.Kmp"/><style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/md_theme_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/il_logo</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@android:style/Theme.Material.Light.NoActionBar</item>
+        
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+    </style></file><file path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">Course</string></file><file path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/values/colors.xml" qualifiers=""><color name="md_theme_primary">#FF269AFF</color><color name="md_theme_onPrimary">#FFFFFF</color><color name="md_theme_primaryContainer">#A3F1D6</color><color name="md_theme_onPrimaryContainer">#002118</color><color name="md_theme_secondary">#9CCC65</color><color name="md_theme_onSecondary">#FFFFFF</color><color name="md_theme_secondaryContainer">#D6F5C7</color><color name="md_theme_onSecondaryContainer">#0A2000</color><color name="md_theme_tertiary">#F9A825</color><color name="md_theme_onTertiary">#FFFFFF</color><color name="md_theme_tertiaryContainer">#EAC989</color><color name="md_theme_onTertiaryContainer">#1A1E00</color><color name="md_theme_error">#FA4C4C</color><color name="md_theme_errorContainer">#FFFFFF</color><color name="md_theme_onError">#FFDAD6</color><color name="md_theme_onErrorContainer">#410002</color><color name="md_theme_background">#FFFFFF</color><color name="md_theme_onBackground">#0B1014</color><color name="md_theme_surface">#FFFFFF</color><color name="md_theme_onSurface">#1B1B21</color><color name="md_theme_surfaceVariant">#E4E1EC</color><color name="md_theme_onSurfaceVariant">#46464F</color></file><file path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/values/ic_launcher_background.xml" qualifiers=""><color name="ic_launcher_background">#3D3C54</color></file><file path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/values-night/colors.xml" qualifiers="night-v8"><color name="md_theme_primary">#6DBCFF</color><color name="md_theme_onPrimary">#00513F</color><color name="md_theme_primaryContainer">#009473</color><color name="md_theme_onPrimaryContainer">#A3F1D6</color><color name="md_theme_secondary">#E5F6D4</color><color name="md_theme_onSecondary">#FFFFFF</color><color name="md_theme_secondaryContainer">#D6F5C7</color><color name="md_theme_onSecondaryContainer">#0A2000</color><color name="md_theme_tertiary">#FFDF56</color><color name="md_theme_onTertiary">#FFFFFF</color><color name="md_theme_tertiaryContainer">#EAC989</color><color name="md_theme_onTertiaryContainer">#1A1E00</color><color name="md_theme_error">#FA4C4C</color><color name="md_theme_errorContainer">#FFFFFF</color><color name="md_theme_onError">#FFDAD6</color><color name="md_theme_onErrorContainer">#410002</color><color name="md_theme_background">#263238</color><color name="md_theme_onBackground">#FFFFFF</color><color name="md_theme_surface">#37474F</color><color name="md_theme_onSurface">#FCFDFF</color><color name="md_theme_surfaceVariant">#46464F</color><color name="md_theme_onSurfaceVariant">#C7C5D0</color></file><file path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/values-night/theme.xml" qualifiers="night-v8"><style name="Base.Theme.HelloWordKmp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+        
+        <item name="colorSecondary">@color/md_theme_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
+        
+        <item name="colorTertiary">@color/md_theme_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_onTertiaryContainer</item>
+        
+        <item name="colorError">@color/md_theme_error</item>
+        <item name="colorErrorContainer">@color/md_theme_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_onErrorContainer</item>
+        
+        <item name="android:colorBackground">@color/md_theme_background</item>
+        <item name="colorOnBackground">@color/md_theme_onBackground</item>
+        
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
+        
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+    </style><style name="Theme.HelloWordKmp" parent="Base.Theme.HelloWordKmp"/><style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/md_theme_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/il_logo</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@android:style/Theme.Material.Light.NoActionBar</item>
+        
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+    </style></file><file name="il_logo" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/drawable/il_logo.webp" qualifiers="" type="drawable"/><file name="ic_launcher_foreground" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-hdpi/ic_launcher.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-hdpi/ic_launcher_round.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xhdpi/ic_launcher.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="data_extraction_rules" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/xml/data_extraction_rules.xml" qualifiers="" type="xml"/><file name="backup_rules" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/xml/backup_rules.xml" qualifiers="" type="xml"/><file name="ic_launcher_foreground" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-mdpi/ic_launcher.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-mdpi/ic_launcher_round.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_foreground" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" qualifiers="xxxhdpi-v4" type="mipmap"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="/home/eaceves/AndroidStudioProjects/2026/uagr-kmp-course_2/androidApp/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"/><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"/><mergedItems/></merger>

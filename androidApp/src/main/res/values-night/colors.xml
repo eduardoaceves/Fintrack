@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ - colors.xml - Night
+ - Copyright (c) 2026. All rights reserved
+-->
+<resources>
+    <!-- Night primary colors -->
+    <color name="md_theme_primary">#6DBCFF</color>
+    <color name="md_theme_onPrimary">#00513F</color>
+    <color name="md_theme_primaryContainer">#009473</color>
+    <color name="md_theme_onPrimaryContainer">#A3F1D6</color>
+    <!-- Night secondary colors -->
+    <color name="md_theme_secondary">#E5F6D4</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#D6F5C7</color>
+    <color name="md_theme_onSecondaryContainer">#0A2000</color>
+    <!-- Night tertiary colors -->
+    <color name="md_theme_tertiary">#FFDF56</color>
+    <color name="md_theme_onTertiary">#FFFFFF</color>
+    <color name="md_theme_tertiaryContainer">#EAC989</color>
+    <color name="md_theme_onTertiaryContainer">#1A1E00</color>
+    <!-- Night error colors -->
+    <color name="md_theme_error">#FA4C4C</color>
+    <color name="md_theme_errorContainer">#FFFFFF</color>
+    <color name="md_theme_onError">#FFDAD6</color>
+    <color name="md_theme_onErrorContainer">#410002</color>
+    <!-- Night background colors -->
+    <color name="md_theme_background">#263238</color>
+    <color name="md_theme_onBackground">#FFFFFF</color>
+    <!-- Night surface colors -->
+    <color name="md_theme_surface">#37474F</color>
+    <color name="md_theme_onSurface">#FCFDFF</color>
+    <color name="md_theme_surfaceVariant">#46464F</color>
+    <color name="md_theme_onSurfaceVariant">#C7C5D0</color>
+</resources>
