@@ -5,6 +5,7 @@
     <string name="empty_field">Campo requerido</string>
     <string name="email_wrong_format">Formato incorrecto</string>
     <string name="empty_value" />
+    <string name="success_title">Operación Exitosa</string>
     <string name="Accept">Aceptar</string>
     <string name="Cancel">Cancelar</string>
 
@@ -20,11 +21,12 @@
     <!-- Login -->
     <string name="login_title">FinTrack</string>
     <string name="login_description">Tus finanzas, claras incluso sin conexión.</string>
-    <string name="login_ammount">$ --</string>
+    <string name="login_amount">$ --</string>
     <string name="login_balance">Balance disponible.</string>
     <string name="login_email">Correo</string>
     <string name="login_password">Contraseña</string>
     <string name="login_button">Iniciar sesión</string>
+    <string name="login_goto_home">Ir a Home</string>
     <string name="login_create_account">Crear una cuenta</string>
     <string name="login_email_example">example@gmail.com</string>
     <string name="login_password_example">**********</string>
@@ -38,6 +40,24 @@
     <string name="register_confirm_password">Confirmar contraseña</string>
     <string name="register_wrong_passwords">Contraseña no coinciden</string>
     <string name="register_button">Registar usuario</string>
+    <string name="register_sucess">Registro exitoso</string>
+
+    <!-- Home -->
+    <string name="home_hello">Hola Eduardo Aceves Adan</string>
+    <string name="home_title">Tu panorama financiero</string>
+    <string name="home_total_balance">Balance total</string>
+    <string name="home_amount">$ --</string>
+    <string name="home_positive_amount">+$ --</string>
+    <string name="home_negative_amount">-$ --</string>
+    <string name="home_up_percentage">↑ 0%</string>
+    <string name="home_down_percentage">↓ 0%</string>
+    <string name="home_income">Ingresos</string>
+    <string name="home_bills">Gastos</string>
+    <string name="home_saving">Ahorro</string>
+    <string name="home_month">Este mes</string>
+    <string name="home_last_moves">Últimos movimientos</string>
+    <string name="home_see_all">Ver todos</string>
+
 
     <!-- Welcome -->
     <string name="welcome">Welcome</string>

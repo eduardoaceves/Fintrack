@@ -19,6 +19,13 @@ internal val Res.drawable.ic_back_arrow_2: DrawableResource by lazy {
       ))
     }
 
+@delegate:ResourceContentHash(-710_257_713)
+internal val Res.drawable.ic_budget: DrawableResource by lazy {
+      DrawableResource("drawable:ic_budget", setOf(
+        ResourceItem(setOf(), "${MD}drawable/ic_budget.webp", -1, -1),
+      ))
+    }
+
 @delegate:ResourceContentHash(-1_027_947_651)
 internal val Res.drawable.ic_email: DrawableResource by lazy {
       DrawableResource("drawable:ic_email", setOf(
@@ -33,6 +40,20 @@ internal val Res.drawable.ic_example: DrawableResource by lazy {
       ))
     }
 
+@delegate:ResourceContentHash(723_876_013)
+internal val Res.drawable.ic_goals: DrawableResource by lazy {
+      DrawableResource("drawable:ic_goals", setOf(
+        ResourceItem(setOf(), "${MD}drawable/ic_goals.webp", -1, -1),
+      ))
+    }
+
+@delegate:ResourceContentHash(668_914_354)
+internal val Res.drawable.ic_home: DrawableResource by lazy {
+      DrawableResource("drawable:ic_home", setOf(
+        ResourceItem(setOf(), "${MD}drawable/ic_home.webp", -1, -1),
+      ))
+    }
+
 @delegate:ResourceContentHash(715_724_368)
 internal val Res.drawable.ic_info: DrawableResource by lazy {
       DrawableResource("drawable:ic_info", setOf(
@@ -44,6 +65,13 @@ internal val Res.drawable.ic_info: DrawableResource by lazy {
 internal val Res.drawable.ic_mini_chart_2: DrawableResource by lazy {
       DrawableResource("drawable:ic_mini_chart_2", setOf(
         ResourceItem(setOf(), "${MD}drawable/ic_mini_chart_2.webp", -1, -1),
+      ))
+    }
+
+@delegate:ResourceContentHash(289_949_266)
+internal val Res.drawable.ic_movements: DrawableResource by lazy {
+      DrawableResource("drawable:ic_movements", setOf(
+        ResourceItem(setOf(), "${MD}drawable/ic_movements.webp", -1, -1),
       ))
     }
 
@@ -78,10 +106,14 @@ internal val Res.drawable.il_logo: DrawableResource by lazy {
 @InternalResourceApi
 internal fun _collectCommonMainDrawable0Resources(map: MutableMap<String, DrawableResource>) {
   map.put("ic_back_arrow_2", Res.drawable.ic_back_arrow_2)
+  map.put("ic_budget", Res.drawable.ic_budget)
   map.put("ic_email", Res.drawable.ic_email)
   map.put("ic_example", Res.drawable.ic_example)
+  map.put("ic_goals", Res.drawable.ic_goals)
+  map.put("ic_home", Res.drawable.ic_home)
   map.put("ic_info", Res.drawable.ic_info)
   map.put("ic_mini_chart_2", Res.drawable.ic_mini_chart_2)
+  map.put("ic_movements", Res.drawable.ic_movements)
   map.put("ic_password", Res.drawable.ic_password)
   map.put("ic_visibility_off", Res.drawable.ic_visibility_off)
   map.put("ic_visibility_on", Res.drawable.ic_visibility_on)

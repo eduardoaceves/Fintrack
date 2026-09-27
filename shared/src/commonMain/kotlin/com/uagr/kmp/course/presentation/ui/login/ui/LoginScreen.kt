@@ -23,6 +23,7 @@ fun LoginScreen(
     viewModel: LoginViewModel = koinViewModel(),
     onLoginSuccess: () -> Unit = {},
     onCreateAccountClick: () -> Unit = {},
+    onHomeClick: () -> Unit = {},
 ) {
     val loginUiState by viewModel.loginUiState.collectAsStateWithLifecycle()
 
@@ -57,6 +58,9 @@ fun LoginScreen(
                     email = loginUiState.email,
                     password = loginUiState.password
                 )
+            },
+            onHomeClick = {
+                onHomeClick()
             },
             onCreateAccountClick = {
                 onCreateAccountClick()

@@ -10,7 +10,7 @@ sealed class NetworkResult<out T> {
         val message: String,
         val code: Int? = null,
         val errorType: NetworkErrorType = NetworkErrorType.UNKNOWN,
-        val data: Any? = null,
+        val error: Any? = null,
     ) : NetworkResult<Nothing>()
 }
 

@@ -7,6 +7,8 @@ import androidx.room.util.performSuspending
 import androidx.sqlite.SQLiteStatement
 import com.uagr.kmp.course.`data`.local.model.user.UserEntity
 import javax.`annotation`.processing.Generated
+import kotlin.Boolean
+import kotlin.Int
 import kotlin.Long
 import kotlin.String
 import kotlin.Suppress
@@ -25,10 +27,10 @@ public class UserDao_Impl(
   init {
     this.__db = __db
     this.__insertAdapterOfUserEntity = object : EntityInsertAdapter<UserEntity>() {
-      protected override fun createQuery(): String = "INSERT OR REPLACE INTO `users` (`id`,`name`,`email`,`phone`,`role`) VALUES (nullif(?, 0),?,?,?,?)"
+      protected override fun createQuery(): String = "INSERT OR REPLACE INTO `users` (`id`,`name`,`email`,`locale`,`currency`,`emailVerified`,`isActive`) VALUES (?,?,?,?,?,?,?)"
 
       protected override fun bind(statement: SQLiteStatement, entity: UserEntity) {
-        statement.bindLong(1, entity.id.toLong())
+        statement.bindText(1, entity.id)
         val _tmpName: String? = entity.name
         if (_tmpName == null) {
           statement.bindNull(2)
@@ -41,17 +43,31 @@ public class UserDao_Impl(
         } else {
           statement.bindText(3, _tmpEmail)
         }
-        val _tmpPhone: String? = entity.phone
-        if (_tmpPhone == null) {
+        val _tmpLocale: String? = entity.locale
+        if (_tmpLocale == null) {
           statement.bindNull(4)
         } else {
-          statement.bindText(4, _tmpPhone)
+          statement.bindText(4, _tmpLocale)
         }
-        val _tmpRole: String? = entity.role
-        if (_tmpRole == null) {
+        val _tmpCurrency: String? = entity.currency
+        if (_tmpCurrency == null) {
           statement.bindNull(5)
         } else {
-          statement.bindText(5, _tmpRole)
+          statement.bindText(5, _tmpCurrency)
+        }
+        val _tmpEmailVerified: Boolean? = entity.emailVerified
+        val _tmp: Int? = _tmpEmailVerified?.let { if (it) 1 else 0 }
+        if (_tmp == null) {
+          statement.bindNull(6)
+        } else {
+          statement.bindLong(6, _tmp.toLong())
+        }
+        val _tmpIsActive: Boolean? = entity.isActive
+        val _tmp_1: Int? = _tmpIsActive?.let { if (it) 1 else 0 }
+        if (_tmp_1 == null) {
+          statement.bindNull(7)
+        } else {
+          statement.bindLong(7, _tmp_1.toLong())
         }
       }
     }

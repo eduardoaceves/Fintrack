@@ -39,13 +39,14 @@ import course.shared.generated.resources.Res
 import course.shared.generated.resources.ic_mini_chart_2
 import course.shared.generated.resources.ic_visibility_off
 import course.shared.generated.resources.ic_visibility_on
-import course.shared.generated.resources.login_ammount
+import course.shared.generated.resources.login_amount
 import course.shared.generated.resources.login_balance
 import course.shared.generated.resources.login_button
 import course.shared.generated.resources.login_create_account
 import course.shared.generated.resources.login_description
 import course.shared.generated.resources.login_email
 import course.shared.generated.resources.login_email_example
+import course.shared.generated.resources.login_goto_home
 import course.shared.generated.resources.login_password
 import course.shared.generated.resources.login_password_example
 import course.shared.generated.resources.login_title
@@ -64,6 +65,7 @@ fun LoginContainer(
     onPasswordVisibilityChanged : (Boolean) -> Unit = {},
     onPasswordChanged : (String) -> Unit = {},
     onLoginClick: () -> Unit = {},
+    onHomeClick: () -> Unit = {},
     onCreateAccountClick: () -> Unit = {},
 ) {
     val scrollState = rememberScrollState()
@@ -101,7 +103,7 @@ fun LoginContainer(
                     textAlign = TextAlign.Start,
                     fontSize = Dimens.textSizeBig,
                     color = AppTheme.colors.text.white,
-                    text = stringResource(Res.string.login_ammount),
+                    text = stringResource(Res.string.login_amount),
                 )
                 TextNormal(
                     modifier = Modifier.fillMaxWidth(),
@@ -157,7 +159,6 @@ fun LoginContainer(
             modifier = Modifier.height(Dimens.height50),
             onClick = onLoginClick,
             backgroundButton = AppTheme.colors.primary,
-            
             textColor = AppTheme.colors.backgrounds.white,
             text = stringResource(Res.string.login_button),
         )
@@ -170,6 +171,14 @@ fun LoginContainer(
             onClick = {
                 onCreateAccountClick()
             }
+        )
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height24))
+        ButtonCustom(
+            modifier = Modifier.height(Dimens.height50),
+            onClick = onHomeClick,
+            backgroundButton = AppTheme.colors.primary,
+            textColor = AppTheme.colors.backgrounds.white,
+            text = stringResource(Res.string.login_goto_home),
         )
         Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
     }

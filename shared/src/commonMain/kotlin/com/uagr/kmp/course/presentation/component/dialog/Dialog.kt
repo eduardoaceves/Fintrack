@@ -7,6 +7,7 @@ package com.uagr.kmp.course.presentation.component.dialog
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
@@ -15,11 +16,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.uagr.kmp.course.domain.model.base.ErrorDialogModel
 import com.uagr.kmp.course.presentation.component.buton.ButtonCustom
+import com.uagr.kmp.course.presentation.component.buton.TextButton
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.component.text.TextSmall
+import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.example
+import course.shared.generated.resources.login_create_account
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -53,21 +57,27 @@ fun DialogCustom(
             },
             confirmButton = {
                 if (errorDialog.primaryButtonText.isNotEmpty()) {
-                    ButtonCustom(
-                        backgroundButton = primaryButtonBackgroundColor,
-                        textColor = primaryButtonTextColor,
-                        text = errorDialog.primaryButtonText,
-                        onClick = onPrimaryButtonClick,
+                    TextButton(
+                        modifier = Modifier,
+                        title = errorDialog.primaryButtonText,
+                        fontSize =  Dimens.textSizeSmall,
+                        color = AppTheme.colors.backgrounds.blue,
+                        onClick = {
+                            onPrimaryButtonClick()
+                        }
                     )
                 }
             },
             dismissButton = {
                 if (errorDialog.secondaryButtonText.isNotEmpty()) {
-                    ButtonCustom(
-                        backgroundButton = secondaryButtonBackgroundColor,
-                        textColor = secondaryButtonTextColor,
-                        text = errorDialog.secondaryButtonText,
-                        onClick = onSecondaryButtonClick,
+                    TextButton(
+                        modifier = Modifier,
+                        title = errorDialog.secondaryButtonText,
+                        fontSize =  Dimens.textSizeSmall,
+                        color = AppTheme.colors.backgrounds.blue,
+                        onClick = {
+                            onSecondaryButtonClick()
+                        }
                     )
                 }
             },

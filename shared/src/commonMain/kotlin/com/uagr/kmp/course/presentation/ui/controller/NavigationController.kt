@@ -9,7 +9,6 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.ScaleTransition
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.ui.login.navigation.LoginNavigation
-import com.uagr.kmp.course.presentation.ui.welcome.navigation.WelcomeNavigation
 
 @Composable
 fun NavigationController() {

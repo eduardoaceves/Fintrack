@@ -5,6 +5,8 @@
 package com.uagr.kmp.course.utils.network
 
 import com.uagr.kmp.course.data.network.model.response.base.BaseResponse
+import com.uagr.kmp.course.data.network.model.response.base.ErrorDataResponse
+import com.uagr.kmp.course.data.network.model.response.register.RegisterDataResponse
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.plugins.ServerResponseException
@@ -31,11 +33,21 @@ suspend inline fun <reified Response : BaseResponse, Domain> safeApiCall(
                 )
             }
         } else {
-            NetworkResult.Error(
-                message = "Error HTTP: $status",
-                code = status,
-                errorType = NetworkErrorType.HTTP,
-            )
+            try{
+                val body = response.body<Response>()
+                val error = (body.error as ErrorDataResponse)
+                NetworkResult.Error(
+                    message = error.message.orEmpty(),
+                    code = status,
+                    errorType = NetworkErrorType.HTTP,
+                )
+            } catch (e : Exception){
+                NetworkResult.Error(
+                    message = "",
+                    code = status,
+                    errorType = NetworkErrorType.HTTP,
+                )
+            }
         }
     } catch (exception: Exception) {
         exception.printStackTrace()

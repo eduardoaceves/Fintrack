@@ -14,10 +14,10 @@ import com.uagr.kmp.course.data.local.model.user.UserEntity
 
 @Database(
     entities = [
-        PackagesEntity::class,
         UserEntity::class,
+        PackagesEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 @ConstructedBy(AppDatabaseConstructor::class)

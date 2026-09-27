@@ -9,9 +9,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
 data class UserEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = false)
+    val id: String,
     val name: String?,
     val email: String?,
-    val phone: String?,
-    val role: String?,
+    val locale: String?,
+    val currency: String?,
+    val emailVerified: Boolean?,
+    val isActive: Boolean?,
 )

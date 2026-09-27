@@ -40,17 +40,17 @@ public class AppDatabase_Impl : AppDatabase() {
   }
 
   protected override fun createOpenDelegate(): RoomOpenDelegate {
-    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(1, "536a7d4bbb868139f6443499fbad5f46", "a42be4e80e6ca2b4a90c606eeee11444") {
+    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(2, "a0f1b70d68849ebf662e168866d8d9b9", "3fc2c96d99fbfee9b0014f1074d24b0d") {
       public override fun createAllTables(connection: SQLiteConnection) {
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` TEXT NOT NULL, `name` TEXT, `email` TEXT, `locale` TEXT, `currency` TEXT, `emailVerified` INTEGER, `isActive` INTEGER, PRIMARY KEY(`id`))")
         connection.execSQL("CREATE TABLE IF NOT EXISTS `packages` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `price` TEXT NOT NULL, `currency` TEXT NOT NULL, `stock` TEXT NOT NULL, `created_by` TEXT NOT NULL, `created_at` TEXT NOT NULL, PRIMARY KEY(`id`))")
-        connection.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `email` TEXT, `phone` TEXT, `role` TEXT)")
         connection.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)")
-        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '536a7d4bbb868139f6443499fbad5f46')")
+        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a0f1b70d68849ebf662e168866d8d9b9')")
       }
 
       public override fun dropAllTables(connection: SQLiteConnection) {
-        connection.execSQL("DROP TABLE IF EXISTS `packages`")
         connection.execSQL("DROP TABLE IF EXISTS `users`")
+        connection.execSQL("DROP TABLE IF EXISTS `packages`")
       }
 
       public override fun onCreate(connection: SQLiteConnection) {
@@ -68,6 +68,27 @@ public class AppDatabase_Impl : AppDatabase() {
       }
 
       public override fun onValidateSchema(connection: SQLiteConnection): RoomOpenDelegate.ValidationResult {
+        val _columnsUsers: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsUsers.put("id", TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsers.put("name", TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsers.put("email", TableInfo.Column("email", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsers.put("locale", TableInfo.Column("locale", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsers.put("currency", TableInfo.Column("currency", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsers.put("emailVerified", TableInfo.Column("emailVerified", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsers.put("isActive", TableInfo.Column("isActive", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysUsers: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesUsers: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoUsers: TableInfo = TableInfo("users", _columnsUsers, _foreignKeysUsers, _indicesUsers)
+        val _existingUsers: TableInfo = read(connection, "users")
+        if (!_infoUsers.equals(_existingUsers)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |users(com.uagr.kmp.course.data.local.model.user.UserEntity).
+              | Expected:
+              |""".trimMargin() + _infoUsers + """
+              |
+              | Found:
+              |""".trimMargin() + _existingUsers)
+        }
         val _columnsPackages: MutableMap<String, TableInfo.Column> = mutableMapOf()
         _columnsPackages.put("id", TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
         _columnsPackages.put("name", TableInfo.Column("name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
@@ -90,25 +111,6 @@ public class AppDatabase_Impl : AppDatabase() {
               | Found:
               |""".trimMargin() + _existingPackages)
         }
-        val _columnsUsers: MutableMap<String, TableInfo.Column> = mutableMapOf()
-        _columnsUsers.put("id", TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
-        _columnsUsers.put("name", TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
-        _columnsUsers.put("email", TableInfo.Column("email", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
-        _columnsUsers.put("phone", TableInfo.Column("phone", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
-        _columnsUsers.put("role", TableInfo.Column("role", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY))
-        val _foreignKeysUsers: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
-        val _indicesUsers: MutableSet<TableInfo.Index> = mutableSetOf()
-        val _infoUsers: TableInfo = TableInfo("users", _columnsUsers, _foreignKeysUsers, _indicesUsers)
-        val _existingUsers: TableInfo = read(connection, "users")
-        if (!_infoUsers.equals(_existingUsers)) {
-          return RoomOpenDelegate.ValidationResult(false, """
-              |users(com.uagr.kmp.course.data.local.model.user.UserEntity).
-              | Expected:
-              |""".trimMargin() + _infoUsers + """
-              |
-              | Found:
-              |""".trimMargin() + _existingUsers)
-        }
         return RoomOpenDelegate.ValidationResult(true, null)
       }
     }
@@ -118,11 +120,11 @@ public class AppDatabase_Impl : AppDatabase() {
   protected override fun createInvalidationTracker(): InvalidationTracker {
     val _shadowTablesMap: MutableMap<String, String> = mutableMapOf()
     val _viewTables: MutableMap<String, Set<String>> = mutableMapOf()
-    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "packages", "users")
+    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "users", "packages")
   }
 
   public override fun clearAllTables() {
-    super.performClear(false, "packages", "users")
+    super.performClear(false, "users", "packages")
   }
 
   protected override fun getRequiredTypeConverterClasses(): Map<KClass<*>, List<KClass<*>>> {

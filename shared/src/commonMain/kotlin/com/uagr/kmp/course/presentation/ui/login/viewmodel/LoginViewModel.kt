@@ -148,7 +148,7 @@ class LoginViewModel(
     }
 
     private fun insertUserAndDelete(loginData: LoginDataModel) = viewModelScope.launch {
-        insertUserAndDeleteUseCase(user = loginData.user)
+       /* insertUserAndDeleteUseCase(user = loginData.user)
             .catch {
                 _loginUiState.update { state ->
                     state.copy(
@@ -158,11 +158,11 @@ class LoginViewModel(
                 }
             }.collect {
                 saveUserToken(loginData = loginData)
-            }
+            }*/
     }
 
     private fun saveUserToken(loginData: LoginDataModel) = viewModelScope.launch {
-        saveUserTokenUseCase(token = loginData.tokens)
+        /*saveUserTokenUseCase(token = loginData.tokens)
             .catch {
                 _loginUiState.update { state ->
                     state.copy(
@@ -172,7 +172,7 @@ class LoginViewModel(
                 }
         }.collect {
             _loginUiEvent.emit(LoginUiEvent.LoginSuccess)
-        }
+        }*/
     }
 
     private suspend fun setErrorDialog(message: String? = null): ErrorDialogModel =

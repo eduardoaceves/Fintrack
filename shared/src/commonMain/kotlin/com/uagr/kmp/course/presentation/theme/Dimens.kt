@@ -12,6 +12,13 @@ import androidx.compose.ui.unit.sp
 object Dimens {
 
     // ------ Text size ------
+    val textSize10sp: TextUnit = 10.sp
+    val textSize11sp: TextUnit = 11.sp
+    val textSize12sp: TextUnit = 12.sp
+    val textSize14sp: TextUnit = 14.sp
+    val textSize18sp: TextUnit = 18.sp
+    val textSize28sp: TextUnit = 28.sp
+    val textSize34sp: TextUnit = 34.sp
     val textSizeExtraSmall: TextUnit = 12.sp
     val textSizeSmall: TextUnit = 13.sp
     val textSizeNormal: TextUnit = 15.sp
@@ -23,11 +30,22 @@ object Dimens {
     val heightNome: Dp = 0.dp
     val height2: Dp = 2.dp
     val height4: Dp = 4.dp
+    val height6: Dp = 6.dp
+    val height7: Dp = 7.dp
     val height8: Dp = 8.dp
+    val height9: Dp = 9.dp
+    val height10: Dp = 10.dp
+    val height11: Dp = 11.dp
     val height12: Dp = 12.dp
+    val height13: Dp = 13.dp
+    val height14: Dp = 14.dp
+    val height15: Dp = 15.dp
     val height16: Dp = 16.dp
+    val height17: Dp = 17.dp
     val height18: Dp = 18.dp
+    val height19: Dp = 19.dp
     val height20: Dp = 20.dp
+    val height21: Dp = 21.dp
     val height22: Dp = 22.dp
     val height24: Dp = 24.dp
     val height26: Dp = 26.dp

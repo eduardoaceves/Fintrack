@@ -9,4 +9,5 @@ data class ErrorDialogModel(
     val message: String = "",
     val primaryButtonText: String = "",
     val secondaryButtonText: String = "",
+    val operationSuccess : Boolean = false
 )

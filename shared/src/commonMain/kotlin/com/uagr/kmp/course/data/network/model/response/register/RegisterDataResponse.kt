@@ -5,6 +5,7 @@
 package com.uagr.kmp.course.data.network.model.response.register
 
 import com.uagr.kmp.course.data.network.model.response.base.BaseResponse
+import com.uagr.kmp.course.data.network.model.response.base.ErrorDataResponse
 import kotlinx.serialization.Serializable
 
 @Serializable

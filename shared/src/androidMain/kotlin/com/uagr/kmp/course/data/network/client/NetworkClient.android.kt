@@ -53,7 +53,10 @@ actual fun createHttpClient(appDataStore: AppDataStore): HttpClient = HttpClient
 
     install(plugin = ContentNegotiation) {
         json(
-            json = Json { ignoreUnknownKeys = true },
+            json = Json {
+                ignoreUnknownKeys = true
+                explicitNulls = false
+            },
             contentType = ContentType.Application.Json,
         )
     }

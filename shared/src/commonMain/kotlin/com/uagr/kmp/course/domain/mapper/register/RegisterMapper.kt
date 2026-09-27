@@ -8,8 +8,8 @@ import com.uagr.kmp.course.data.network.model.response.register.RegisterDataResp
 import com.uagr.kmp.course.data.network.model.response.register.TokenDataResponse
 import com.uagr.kmp.course.data.network.model.response.register.UserDataResponse
 import com.uagr.kmp.course.domain.model.register.RegisterDataModel
-import com.uagr.kmp.course.domain.model.register.TokenDataModel
-import com.uagr.kmp.course.domain.model.register.UserDataModel
+import com.uagr.kmp.course.domain.model.user.TokenDataModel
+import com.uagr.kmp.course.domain.model.user.UserDataModel
 
 fun RegisterDataResponse.toDomain(): RegisterDataModel =
     RegisterDataModel(

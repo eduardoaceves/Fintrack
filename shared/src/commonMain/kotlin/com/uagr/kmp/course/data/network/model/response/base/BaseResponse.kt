@@ -8,6 +8,11 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 open class BaseResponse(
-    val success: Boolean? = false,
+    val success: Boolean? = true,
     val message: String? = "",
+    val error : ErrorDataResponse? = ErrorDataResponse(
+        code = "",
+        message = "",
+        details = null
+    )
 )
