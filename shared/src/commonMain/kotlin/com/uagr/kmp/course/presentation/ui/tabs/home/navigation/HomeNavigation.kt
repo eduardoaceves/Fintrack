@@ -4,9 +4,11 @@
  */
 package com.uagr.kmp.course.presentation.ui.tabs.home.navigation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,13 +19,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainer
-import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.text.TextSmallExtra
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
@@ -31,7 +33,7 @@ import com.uagr.kmp.course.presentation.theme.Dimens.textSize10sp
 import com.uagr.kmp.course.presentation.ui.tabs.budget.BudgetTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.goals.ui.GoalsTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.home.ui.HomeTabScreen
-import com.uagr.kmp.course.presentation.ui.tabs.movements.iu.MovementsTabScreen
+import com.uagr.kmp.course.presentation.ui.tabs.transactions.iu.TransactionsTabScreen
 
 data object HomeNavigation : Screen  {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -43,12 +45,13 @@ data object HomeNavigation : Screen  {
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
                         NavigationBar(
+                            containerColor = AppTheme.colors.backgrounds.white,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clip(RoundedCornerShape(Dimens.corner20))
+                                .clip(RoundedCornerShape(Dimens.corner22))
                         ) {
                             TabNavigationItem(HomeTabScreen )
-                            TabNavigationItem(MovementsTabScreen)
+                            TabNavigationItem(TransactionsTabScreen)
                             TabNavigationItem(BudgetTabScreen)
                             TabNavigationItem(GoalsTabScreen)
                         }

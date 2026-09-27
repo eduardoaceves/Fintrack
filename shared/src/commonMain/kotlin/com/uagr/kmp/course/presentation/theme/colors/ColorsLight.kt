@@ -5,6 +5,7 @@
 package com.uagr.kmp.course.presentation.theme.colors
 
 import androidx.compose.ui.graphics.Color
+import com.uagr.kmp.course.presentation.theme.colors.backgroundGreenActiveDark
 
 val primaryLight = Color(0xFF0F459E)
 val onPrimaryLight = Color(0xFFFFFFFF)
@@ -64,6 +65,11 @@ val backgroundYellowLight = Color(0xFFFFB700)
 val backgroundBlueLight = Color(0xFF1A70ED)
 val dividerLight = Color(0xFFEBEFF9)
 val backgroundProgressIndicatorLight = Color(0x80898989)
+val backgroundGreenLight = Color(0xFFE5FAF2)
+val backgroundRedLight = Color(0xFFFFEDF0)
+val backgroundRedActiveLight = Color(0xFFE5454D)
+val backgroundGreenActiveLight = Color(0xFF17A36E)
+val backgroundCanvasLight = Color(0xFFf5f7fa)
 
 // --- Light color group ---
 val lightModeAppColors = AppColors(
@@ -125,6 +131,11 @@ val lightModeAppColors = AppColors(
         white = backgroundWhiteLight,
         yellow = backgroundYellowLight,
         blue = backgroundBlueLight,
+        red = backgroundRedLight,
+        redActive = backgroundRedActiveLight,
+        green = backgroundGreenLight,
+        greenActive = backgroundGreenActiveLight,
+        canvas = backgroundCanvasLight,
     ),
     divider = dividerLight,
     backgroundProgressIndicator = backgroundProgressIndicatorLight,

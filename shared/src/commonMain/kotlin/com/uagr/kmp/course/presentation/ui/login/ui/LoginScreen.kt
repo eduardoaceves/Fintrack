@@ -4,8 +4,10 @@
  */
 package com.uagr.kmp.course.presentation.ui.login.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainer
@@ -16,6 +18,7 @@ import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.ui.login.viewmodel.LoginUiEvent
 import com.uagr.kmp.course.presentation.ui.login.viewmodel.LoginViewModel
 import com.uagr.kmp.course.utils.flow.CollectWithLifecycle
+import com.uagr.kmp.course.utils.text.compareDates
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -26,7 +29,7 @@ fun LoginScreen(
     onHomeClick: () -> Unit = {},
 ) {
     val loginUiState by viewModel.loginUiState.collectAsStateWithLifecycle()
-
+    compareDates()
     viewModel.loginUiEvent.CollectWithLifecycle { event ->
         when (event) {
             is LoginUiEvent.Idle -> {}
@@ -37,7 +40,9 @@ fun LoginScreen(
         }
     }
 
-    SafeScreenContainer {
+    SafeScreenContainer(
+        modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
+    ) {
         LoginContainer(
             email = loginUiState.email,
             emailError = loginUiState.emailError,

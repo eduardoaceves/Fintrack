@@ -15,5 +15,8 @@ object Constants {
     const val PASSWORD_LENGTH = 20
     const val EMAIL_LENGTH = 40
     const val NAME_LENGTH = 30
+    const val TRANSACTION_INCOME = "INCOME"
+    const val TRANSACTION_EXPEND = "EXPEND"
+    
     
 }
