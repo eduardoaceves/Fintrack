@@ -36,9 +36,8 @@ object HomeTabScreen : Tab {
         SafeScreenContainer(
             modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
         ) {
-            HomeScreenContainer()
+            HomeScreen()
         }
-        
     }
     
     

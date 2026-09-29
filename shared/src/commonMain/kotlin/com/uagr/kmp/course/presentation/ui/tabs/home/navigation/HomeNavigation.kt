@@ -30,7 +30,7 @@ import com.uagr.kmp.course.presentation.component.text.TextSmallExtra
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
 import com.uagr.kmp.course.presentation.theme.Dimens.textSize10sp
-import com.uagr.kmp.course.presentation.ui.tabs.budget.BudgetTabScreen
+import com.uagr.kmp.course.presentation.ui.tabs.budget.ui.BudgetTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.goals.ui.GoalsTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.home.ui.HomeTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.transactions.iu.TransactionsTabScreen
@@ -48,7 +48,7 @@ data object HomeNavigation : Screen  {
                             containerColor = AppTheme.colors.backgrounds.white,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clip(RoundedCornerShape(Dimens.corner22))
+                                .clip(RoundedCornerShape(topStart = Dimens.corner22, topEnd = Dimens.corner22))
                         ) {
                             TabNavigationItem(HomeTabScreen )
                             TabNavigationItem(TransactionsTabScreen)

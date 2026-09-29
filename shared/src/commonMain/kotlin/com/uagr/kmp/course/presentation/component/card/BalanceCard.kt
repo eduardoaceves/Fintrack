@@ -46,12 +46,12 @@ fun BalanceCard(
                 text = amount.orEmpty()
             )
             Spacer(modifier = Modifier.height(Dimens.height6))
-            TextNormalBold(
+            /*TextNormalBold(
                 textAlign = TextAlign.Start,
                 fontSize = Dimens.textSize12sp,
                 color = AppTheme.colors.text.green,
                 text = percentage.orEmpty()
-            )
+            )*/
         }
     }
 }

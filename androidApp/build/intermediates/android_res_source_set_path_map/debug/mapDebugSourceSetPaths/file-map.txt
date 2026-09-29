@@ -1,8 +1,0 @@
-com.uagr.kmp.course.android.androidApp-pngs-0 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/build/generated/res/pngs/debug
-com.uagr.kmp.course.android.androidApp-updated_navigation_xml-1 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/build/generated/updated_navigation_xml/debug
-com.uagr.kmp.course.android.androidApp-packageDebugResources-2 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.uagr.kmp.course.android.androidApp-packageDebugResources-3 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.uagr.kmp.course.android.androidApp-debug-4 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/build/intermediates/merged_res/debug/mergeDebugResources
-com.uagr.kmp.course.android.androidApp-debug-5 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/src/debug/res
-com.uagr.kmp.course.android.androidApp-main-6 /home/eaceves/AndroidStudioProjects/2026/Fintrack/androidApp/src/main/res
-gradleHome-0 /home/eaceves/.gradle

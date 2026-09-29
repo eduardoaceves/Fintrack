@@ -29,7 +29,7 @@ fun LoginScreen(
     onHomeClick: () -> Unit = {},
 ) {
     val loginUiState by viewModel.loginUiState.collectAsStateWithLifecycle()
-    compareDates()
+    
     viewModel.loginUiEvent.CollectWithLifecycle { event ->
         when (event) {
             is LoginUiEvent.Idle -> {}
@@ -71,7 +71,7 @@ fun LoginScreen(
                 onCreateAccountClick()
             },
         )
-        Loader()
+        Loader(isLoading = loginUiState.isLoading)
         DialogCustom(
             errorDialog = loginUiState.errorDialog,
             titleTextColor = AppTheme.colors.text.black,

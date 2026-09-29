@@ -1,1 +1,0 @@
-com.uagr.kmp.course.shared

@@ -6,10 +6,8 @@ package com.uagr.kmp.course.data.network.datasource.register
 
 import com.uagr.kmp.course.data.network.model.request.register.RegisterRequest
 import com.uagr.kmp.course.data.network.model.response.register.RegisterDataResponse
-import com.uagr.kmp.course.domain.mapper.login.toDomain
 import com.uagr.kmp.course.domain.mapper.register.toDomain
 import com.uagr.kmp.course.domain.model.register.RegisterDataModel
-import com.uagr.kmp.course.domain.model.user.UserModel
 import com.uagr.kmp.course.utils.network.NetworkResult
 import com.uagr.kmp.course.utils.network.safeApiCall
 import io.ktor.client.HttpClient
@@ -23,6 +21,7 @@ import org.koin.core.annotation.Factory
 class RegisterNetworkDataSourceImpl(
     private val httpClient: HttpClient
 ) : RegisterNetworkDataSource {
+    
     override suspend fun registerUser(
         url: String,
         registerRequest: RegisterRequest,
@@ -34,7 +33,7 @@ class RegisterNetworkDataSourceImpl(
                     setBody(body = registerRequest)
                 }
             },
-            transform = {  data : RegisterDataResponse ->
+            transform = { data : RegisterDataResponse ->
                 data.toDomain()
             },
         )

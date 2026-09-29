@@ -6,7 +6,6 @@ package com.uagr.kmp.course.data.repository.user
 
 import com.uagr.kmp.course.data.local.datasource.user.UserLocalDataSource
 import com.uagr.kmp.course.domain.model.user.UserDataModel
-import com.uagr.kmp.course.domain.model.user.UserModel
 import com.uagr.kmp.course.domain.repository.user.UserRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow

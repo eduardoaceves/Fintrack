@@ -6,7 +6,6 @@ package com.uagr.kmp.course.utils.network
 
 import com.uagr.kmp.course.data.network.model.response.base.BaseResponse
 import com.uagr.kmp.course.data.network.model.response.base.ErrorDataResponse
-import com.uagr.kmp.course.data.network.model.response.register.RegisterDataResponse
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.plugins.ServerResponseException

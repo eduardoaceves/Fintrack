@@ -10,6 +10,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.uagr.kmp.course.presentation.ui.login.navigation.LoginNavigation
 import com.uagr.kmp.course.presentation.ui.register.ui.RegisterScreen
+import com.uagr.kmp.course.presentation.ui.tabs.home.navigation.HomeNavigation
 
 data object RegisterNavigation : Screen {
     @Composable
@@ -17,7 +18,7 @@ data object RegisterNavigation : Screen {
         val navigator = LocalNavigator.currentOrThrow
         RegisterScreen(
             onRegisterSuccess = {
-                navigator.replaceAll(item = LoginNavigation)
+                navigator.replaceAll(item = HomeNavigation)
             },
             onBackClick = {
                 navigator.replaceAll(item = LoginNavigation)

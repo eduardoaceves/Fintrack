@@ -22,15 +22,25 @@ class AppDataStore(
 ) {
     object KEY {
         val USER_TOKEN = stringPreferencesKey(name = Constants.USER_TOKEN)
+        val REFRESH_TOKEN = stringPreferencesKey(name = Constants.REFRESH_TOKEN)
     }
 
     val userToken: Flow<String?> = dataStore.data
         .catch { exception ->
             if (exception is IOException) emit(emptyPreferences()) else throw exception
         }.map { data -> data[KEY.USER_TOKEN] }
+    
+    val refreshToken: Flow<String?> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }.map { data -> data[KEY.REFRESH_TOKEN] }
 
     suspend fun saveUserToken(token: String) {
         dataStore.edit { data -> data[KEY.USER_TOKEN] = token }
+    }
+    
+    suspend fun saveRefreshToken(token: String) {
+        dataStore.edit { data -> data[KEY.REFRESH_TOKEN] = token }
     }
 }
 

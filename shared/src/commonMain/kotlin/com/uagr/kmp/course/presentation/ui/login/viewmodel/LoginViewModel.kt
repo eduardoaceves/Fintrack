@@ -7,7 +7,7 @@ package com.uagr.kmp.course.presentation.ui.login.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uagr.kmp.course.domain.model.base.ErrorDialogModel
-import com.uagr.kmp.course.domain.model.login.LoginDataModel
+import com.uagr.kmp.course.domain.model.user.UserTokensModel
 import com.uagr.kmp.course.domain.usecase.login.LoginUseCase
 import com.uagr.kmp.course.domain.usecase.login.LoginValidationResult
 import com.uagr.kmp.course.domain.usecase.login.ValidateLoginFormUseCase
@@ -32,7 +32,6 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.koin.core.annotation.KoinViewModel
-import kotlin.collections.copy
 
 @KoinViewModel
 class LoginViewModel(
@@ -52,6 +51,13 @@ class LoginViewModel(
         if(email.length < Constants.EMAIL_LENGTH) {
             _loginUiState.update { state -> state.copy(email = email) }
         }
+    }
+    
+    init{
+        _loginUiState.update { state -> state.copy(
+            email = "fintrack.postman.1790610089152@example.com",
+            password = "Postman123!"
+        ) }
     }
 
     fun updatePassword(password: String) = viewModelScope.launch {
@@ -124,8 +130,8 @@ class LoginViewModel(
         }.collect { result ->
             when (result) {
                 is NetworkResult.Success -> {
-                    result.response.data?.let { data ->
-                        insertUserAndDelete(loginData = data)
+                    result.response?.let { data ->
+                        saveUserToken(userToken = data )
                     } ?: run {
                         _loginUiState.update { state ->
                             state.copy(
@@ -139,7 +145,11 @@ class LoginViewModel(
                     _loginUiState.update { state ->
                         state.copy(
                             isLoading = StatusLoading.DISMISS_LOADING,
-                            errorDialog = setErrorDialog(),
+                            errorDialog = setErrorDialog(message =
+                                result.message.ifEmpty {
+                                    getString(Res.string.please_try_again_later)
+                                }
+                            )
                         )
                     }
                 }
@@ -147,8 +157,8 @@ class LoginViewModel(
         }
     }
 
-    private fun insertUserAndDelete(loginData: LoginDataModel) = viewModelScope.launch {
-       /* insertUserAndDeleteUseCase(user = loginData.user)
+    /*private fun insertUserAndDelete(loginData: LoginDataModel) = viewModelScope.launch {
+       insertUserAndDeleteUseCase(user = loginData.user)
             .catch {
                 _loginUiState.update { state ->
                     state.copy(
@@ -158,11 +168,11 @@ class LoginViewModel(
                 }
             }.collect {
                 saveUserToken(loginData = loginData)
-            }*/
-    }
+            }
+    }*/
 
-    private fun saveUserToken(loginData: LoginDataModel) = viewModelScope.launch {
-        /*saveUserTokenUseCase(token = loginData.tokens)
+    private fun saveUserToken(userToken: UserTokensModel) = viewModelScope.launch {
+       saveUserTokenUseCase(token = userToken)
             .catch {
                 _loginUiState.update { state ->
                     state.copy(
@@ -172,7 +182,7 @@ class LoginViewModel(
                 }
         }.collect {
             _loginUiEvent.emit(LoginUiEvent.LoginSuccess)
-        }*/
+        }
     }
 
     private suspend fun setErrorDialog(message: String? = null): ErrorDialogModel =

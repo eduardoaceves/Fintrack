@@ -73,3 +73,6 @@ captures/
 *.salive
 build/reports/problems/problems-report.html
 shared/build/
+shared/build
+androidApp/build/
+androidApp/build

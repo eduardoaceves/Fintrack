@@ -8,5 +8,7 @@ import com.uagr.kmp.course.domain.model.packages.PackagesModel
 import com.uagr.kmp.course.utils.network.NetworkResult
 
 interface PackagesNetworkDataSource {
-    suspend fun getPackages(url : String): NetworkResult<PackagesModel>
+    suspend fun getPackages(
+        url : String
+    ): NetworkResult<PackagesModel>
 }

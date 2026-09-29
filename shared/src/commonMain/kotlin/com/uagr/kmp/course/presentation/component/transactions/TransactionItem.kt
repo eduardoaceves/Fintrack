@@ -4,7 +4,6 @@
  */
 package com.uagr.kmp.course.presentation.component.transactions
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.uagr.kmp.course.domain.model.transations.TransactionModel
+import com.uagr.kmp.course.domain.model.transations.TransactionItemModel
 import com.uagr.kmp.course.presentation.component.card.SimpleCard
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.mock.transactionDataMock
@@ -34,13 +33,21 @@ import course.shared.generated.resources.ic_dot
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun TransactionItem(transaction: TransactionModel){
+fun TransactionItem(
+    transaction: TransactionItemModel
+){
     
     val activeColor =
         if(transaction.type.trim() == Constants.TRANSACTION_EXPEND)
         AppTheme.colors.backgrounds.redActive
     else
         AppTheme.colors.backgrounds.greenActive
+    
+    val symbol =
+        if(transaction.type.trim() == Constants.TRANSACTION_EXPEND)
+            "-$"
+        else
+            "+$"
     
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier.fillMaxWidth()) {
@@ -94,7 +101,7 @@ fun TransactionItem(transaction: TransactionModel){
                 textAlign = TextAlign.End,
                 fontSize = Dimens.textSize14sp,
                 color = activeColor,
-                text = transaction.amount
+                text = symbol+transaction.amount
             )
         }
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height16))

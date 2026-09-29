@@ -25,6 +25,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.uagr.kmp.course.presentation.component.buton.ButtonCustom
+import com.uagr.kmp.course.presentation.component.buton.SingleChoiceSegmentedButton
 import com.uagr.kmp.course.presentation.component.buton.TextButton
 import com.uagr.kmp.course.presentation.component.card.SimpleCard
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
@@ -173,13 +174,13 @@ fun LoginContainer(
             }
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height24))
-        ButtonCustom(
+        /*ButtonCustom(
             modifier = Modifier.height(Dimens.height50),
             onClick = onHomeClick,
             backgroundButton = AppTheme.colors.primary,
             textColor = AppTheme.colors.backgrounds.white,
             text = stringResource(Res.string.login_goto_home),
-        )
+        )*/
         Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
     }
 }

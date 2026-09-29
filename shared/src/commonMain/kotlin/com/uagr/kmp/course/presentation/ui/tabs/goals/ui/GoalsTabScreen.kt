@@ -11,10 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
-import com.uagr.kmp.course.presentation.component.text.TextBigBold
+import com.uagr.kmp.course.presentation.component.container.SafeScreenContainer
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.ic_goals
@@ -37,14 +36,15 @@ object GoalsTabScreen : Tab {
     
     @Composable
     override fun Content() {
-        Box(
-            Modifier.fillMaxSize().background(Color.White),
-            contentAlignment = Alignment.Center)
-        {
-            TextBigBold(
-                text = "GoalsScreen",
-                color = AppTheme.colors.text.black
-            )
+        SafeScreenContainer(
+            modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
+        ) {
+            Box(
+                Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center)
+            {
+                GoalsScreenContainer()
+            }
         }
     }
     

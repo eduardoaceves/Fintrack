@@ -7,7 +7,7 @@ package com.uagr.kmp.course.data.network.datasource.login
 import com.uagr.kmp.course.data.network.model.request.login.LoginRequest
 import com.uagr.kmp.course.data.network.model.response.login.LoginResponse
 import com.uagr.kmp.course.domain.mapper.login.toDomain
-import com.uagr.kmp.course.domain.model.login.LoginModel
+import com.uagr.kmp.course.domain.model.user.UserTokensModel
 import com.uagr.kmp.course.utils.network.NetworkResult
 import com.uagr.kmp.course.utils.network.safeApiCall
 import io.ktor.client.HttpClient
@@ -25,7 +25,7 @@ class LoginNetworkDataSourceImpl(
     override suspend fun login(
         url: String,
         loginRequest: LoginRequest,
-    ): NetworkResult<LoginModel> =
+    ): NetworkResult<UserTokensModel> =
         safeApiCall(
             apiCall = {
                 httpClient.post(urlString = url) {

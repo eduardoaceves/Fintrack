@@ -46,7 +46,7 @@ espressoCore = "3.7.0"
 kotlinStdlib = "2.4.20"
 runner = "1.7.0"
 core = "1.7.0"
-# datatime = "0.8.0"
+datatime = "0.8.0"
 
 [libraries]
 # AndroidX
@@ -59,7 +59,7 @@ androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycl
 androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "lib-androidx-navigation" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "lib-splashscreen" }
 google-material = { module = "com.google.android.material:material", version.ref = "lib-material" }
-# kotlinx-datetime =  { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datatime" }
+kotlinx-datetime =  { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datatime" }
 
 # Compose
 compose-uiTooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "lib-ui-tooling" }
@@ -150,6 +150,8 @@ sharedUI-commons-libs = [
     'androidx-sqlite-bundled',
     # Persistence
     'androidx-datastore',
+    # Datetime
+    'kotlinx-datetime'
 ]
 sharedUI-android-libs = [
     'androidx-core-ktx',

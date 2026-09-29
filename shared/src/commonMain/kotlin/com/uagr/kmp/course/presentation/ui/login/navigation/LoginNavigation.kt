@@ -22,7 +22,7 @@ data object LoginNavigation : Screen  {
                 navigator.push(item = RegisterNavigation)
             },
             onLoginSuccess = {
-                navigator.replaceAll(item = PackagesNavigation)
+                navigator.replaceAll(item = HomeNavigation)
             },
             onHomeClick = {
                 navigator.replaceAll(HomeNavigation)

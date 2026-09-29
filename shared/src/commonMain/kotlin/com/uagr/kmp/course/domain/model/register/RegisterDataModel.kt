@@ -4,11 +4,11 @@
  */
 package com.uagr.kmp.course.domain.model.register
 
-import com.uagr.kmp.course.domain.model.user.TokenDataModel
 import com.uagr.kmp.course.domain.model.user.UserDataModel
+import com.uagr.kmp.course.domain.model.user.UserTokensModel
 
 data class RegisterDataModel(
-	val tokens: TokenDataModel?,
+	val tokens: UserTokensModel?,
 	val user: UserDataModel?
 )
 

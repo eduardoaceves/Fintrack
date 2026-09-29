@@ -5,7 +5,6 @@
 package com.uagr.kmp.course.domain.repository.user
 
 import com.uagr.kmp.course.domain.model.user.UserDataModel
-import com.uagr.kmp.course.domain.model.user.UserModel
 import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {

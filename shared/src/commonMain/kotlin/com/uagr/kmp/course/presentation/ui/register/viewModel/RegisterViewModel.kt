@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uagr.kmp.course.domain.model.base.ErrorDialogModel
 import com.uagr.kmp.course.domain.model.register.RegisterDataModel
-import com.uagr.kmp.course.domain.model.user.TokenDataModel
 import com.uagr.kmp.course.domain.model.user.UserTokensModel
 import com.uagr.kmp.course.domain.usecase.register.RegisterUserUseCase
 import com.uagr.kmp.course.domain.usecase.register.ValidateRegisterFormResult
@@ -179,7 +178,7 @@ class RegisterViewModel(
         }
     }
     
-    private fun saveUserToken(tokenData : TokenDataModel?) = viewModelScope.launch{
+    private fun saveUserToken(tokenData : UserTokensModel?) = viewModelScope.launch{
         saveUserTokenUseCase(
             token = tokenData
         ).catch {

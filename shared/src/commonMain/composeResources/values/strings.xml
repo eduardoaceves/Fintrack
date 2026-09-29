@@ -58,6 +58,26 @@
     <string name="home_last_moves">Últimos movimientos</string>
     <string name="home_see_all">Ver todos</string>
 
+    <!-- Transactions -->
+    <string name="transactions_title">Movimientos</string>
+    <string name="transactions_date">Septiembre 2026</string>
+    <string name="transactions_filter_all">Todos</string>
+    <string name="transactions_filter_expends">Gastos</string>
+    <string name="transactions_filter_incomes">Ingresos</string>
+    <string name="transactions_filter_searc">Buscar movimiento...</string>
+
+    <!-- Budget -->
+    <string name="budget_title">Presupuestos</string>
+    <string name="budget_month">Septiembre</string>
+    <string name="budget_month_budget">Presupuesto mensual</string>
+    <string name="budget_used">Usado</string>
+    <string name="budget_by_category">Por categoría</string>
+
+    <!-- Goals -->
+    <string name="goals_title">Metas de ahorro</string>
+    <string name="goals_description">Convierte objetivos en progreso visible</string>
+    <string name="goals_other_golas">Otras metas</string>
+    <string name="goals_new_goal">Nueva meta</string>
 
     <!-- Welcome -->
     <string name="welcome">Welcome</string>

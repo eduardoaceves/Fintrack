@@ -8,8 +8,8 @@ import com.uagr.kmp.course.data.network.model.response.register.RegisterDataResp
 import com.uagr.kmp.course.data.network.model.response.register.TokenDataResponse
 import com.uagr.kmp.course.data.network.model.response.register.UserDataResponse
 import com.uagr.kmp.course.domain.model.register.RegisterDataModel
-import com.uagr.kmp.course.domain.model.user.TokenDataModel
 import com.uagr.kmp.course.domain.model.user.UserDataModel
+import com.uagr.kmp.course.domain.model.user.UserTokensModel
 
 fun RegisterDataResponse.toDomain(): RegisterDataModel =
     RegisterDataModel(
@@ -28,8 +28,8 @@ fun UserDataResponse.toDomain(): UserDataModel =
         isActive = is_active?:false
     )
 
-fun TokenDataResponse.toDomain() : TokenDataModel =
-    TokenDataModel(
+fun TokenDataResponse.toDomain() : UserTokensModel =
+    UserTokensModel(
         access_token = access_token.orEmpty(),
         refresh_token = refresh_token.orEmpty(),
         token_type = token_type.orEmpty(),

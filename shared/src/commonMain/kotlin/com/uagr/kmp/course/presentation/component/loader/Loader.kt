@@ -41,6 +41,8 @@ fun Loader(
     }
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
 private fun LoaderPreview() {

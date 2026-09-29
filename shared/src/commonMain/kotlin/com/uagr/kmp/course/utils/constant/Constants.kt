@@ -11,12 +11,12 @@ object Constants {
     const val EMAIL_PATTERN = "[a-zA-Z\\d._-]+@[a-z]+\\.+[a-z]+"
     const val DATABASE_NAME = "kmp_course_DB"
     const val USER_TOKEN = "user_token"
+    const val REFRESH_TOKEN = "refresh_token"
     const val DATASTORE_NAME = "kmp_dataStore"
     const val PASSWORD_LENGTH = 20
     const val EMAIL_LENGTH = 40
     const val NAME_LENGTH = 30
     const val TRANSACTION_INCOME = "INCOME"
-    const val TRANSACTION_EXPEND = "EXPEND"
-    
-    
+    const val TRANSACTION_EXPEND = "EXPENSE"
+    const val DEVICE_ID = "4a4e2dcd-f217-4b7c-b4fb-70b0ee84a6c2"
 }
