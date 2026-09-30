@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class TransactionItemResponse(
 	val transaction_date: String?,
 	val amount: String?,
-	val accountId: String?,
+	val account_id: String?,
 	val notes: String?,
 	val category_id: String?,
 	val updated_at: String?,

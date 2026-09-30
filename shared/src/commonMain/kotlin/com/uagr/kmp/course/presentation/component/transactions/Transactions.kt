@@ -137,12 +137,14 @@ fun LazyColumnExample() {
                 .fillMaxWidth()
                 .padding(4.dp),
             text = "Mi lista de ítems",
+            color = AppTheme.colors.backgrounds.blue,
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Start
         )
         LazyColumn(
-            modifier = Modifier.fillMaxWidth().height(Dimens.height200),
+            //modifier = Modifier.fillMaxWidth().height(Dimens.height200),
+            modifier = Modifier.fillMaxSize(),
             flingBehavior = ScrollableDefaults.flingBehavior(),
             state = rememberLazyListState(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -160,7 +162,7 @@ fun LazyColumnExample() {
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .background(Color.LightGray)
+                                .background(Color.Gray)
                                 .padding(6.dp)
                         ) {
                             Text(
@@ -185,10 +187,12 @@ fun LazyColumnExample() {
                             ) {
                                 Text(
                                     text = item.title,
+                                    color = AppTheme.colors.text.black,
                                     style = MaterialTheme.typography.titleMedium
                                 )
                                 Text(
                                     text = item.description,
+                                    color = AppTheme.colors.text.black,
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }

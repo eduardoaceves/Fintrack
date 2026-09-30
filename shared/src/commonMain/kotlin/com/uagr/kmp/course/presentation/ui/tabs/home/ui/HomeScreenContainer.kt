@@ -65,121 +65,119 @@ fun HomeScreenContainer(
             .verticalScroll(state = scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //Column(modifier = Modifier.padding(all = Dimens.padding16)) {
-            Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
-            TextNormal(
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start,
-                fontSize = Dimens.textSizeNormal,
-                color = AppTheme.colors.text.gray,
-                text = stringResource(Res.string.home_hello)
-            )
-            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height8))
-            TextNormalBold(
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start,
-                fontSize = Dimens.textSize28sp,
-                color = AppTheme.colors.text.black,
-                text = stringResource(Res.string.home_title),
-            )
-            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
-            accounts?.let {
-                LazyRow(modifier = Modifier.fillMaxWidth())
-                {
-                    items(count = accounts.items.size) { index ->
-                        SimpleCard(
-                            modifierCard = Modifier.fillParentMaxWidth(),
-                            cardBackgroundColor = AppTheme.colors.primary
-                        ) {
-                            TextNormal(
-                                modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Start,
-                                fontSize = Dimens.textSizeNormal,
-                                color = AppTheme.colors.text.white,
-                                text = accounts.items[index].name,
-                            )
-                            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height13))
-                            TextNormalBold(
-                                modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Start,
-                                fontSize = Dimens.textSizeBig,
-                                color = AppTheme.colors.text.white,
-                                text = "$" + summary?.net,
-                            )
-                            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height21))
-                            Row(modifier = Modifier.fillMaxWidth())
-                            {
-                                Column(modifier = Modifier.weight(1f)) {
-                                    TextSmall(
-                                        textAlign = TextAlign.Start,
-                                        fontSize = Dimens.textSize12sp,
-                                        color = AppTheme.colors.text.white,
-                                        text = stringResource(Res.string.home_income),
-                                    )
-                                    Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height7))
-                                    TextMedium(
-                                        textAlign = TextAlign.Start,
-                                        fontSize = Dimens.textSize14sp,
-                                        color = AppTheme.colors.text.white,
-                                        text = "+$"+summary?.income
-                                    )
-                                }
-                                Column(modifier = Modifier.weight(1f)) {
-                                    TextSmall(
-                                        textAlign = TextAlign.Start,
-                                        fontSize = Dimens.textSize12sp,
-                                        color = AppTheme.colors.text.white,
-                                        text = stringResource(Res.string.home_bills),
-                                    )
-                                    Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height7))
-                                    TextMedium(
-                                        textAlign = TextAlign.Start,
-                                        fontSize = Dimens.textSize14sp,
-                                        color = AppTheme.colors.text.white,
-                                        text = "-$"+summary?.expenses.orEmpty()
-                                    )
-                                }
+        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
+        TextNormal(
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start,
+            fontSize = Dimens.textSizeNormal,
+            color = AppTheme.colors.text.gray,
+            text = stringResource(Res.string.home_hello)
+        )
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height8))
+        TextNormalBold(
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start,
+            fontSize = Dimens.textSize28sp,
+            color = AppTheme.colors.text.black,
+            text = stringResource(Res.string.home_title),
+        )
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
+        accounts?.let {
+            LazyRow(modifier = Modifier.fillMaxWidth())
+            {
+                items(count = accounts.items.size) { index ->
+                    SimpleCard(
+                        modifierCard = Modifier.fillParentMaxWidth(),
+                        cardBackgroundColor = AppTheme.colors.primary
+                    ) {
+                        TextNormal(
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Start,
+                            fontSize = Dimens.textSizeNormal,
+                            color = AppTheme.colors.text.white,
+                            text = accounts.items[index].name,
+                        )
+                        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height13))
+                        TextNormalBold(
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Start,
+                            fontSize = Dimens.textSizeBig,
+                            color = AppTheme.colors.text.white,
+                            text = "$" + summary?.net,
+                        )
+                        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height21))
+                        Row(modifier = Modifier.fillMaxWidth())
+                        {
+                            Column(modifier = Modifier.weight(1f)) {
+                                TextSmall(
+                                    textAlign = TextAlign.Start,
+                                    fontSize = Dimens.textSize12sp,
+                                    color = AppTheme.colors.text.white,
+                                    text = stringResource(Res.string.home_income),
+                                )
+                                Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height7))
+                                TextMedium(
+                                    textAlign = TextAlign.Start,
+                                    fontSize = Dimens.textSize14sp,
+                                    color = AppTheme.colors.text.white,
+                                    text = "+$"+summary?.income
+                                )
+                            }
+                            Column(modifier = Modifier.weight(1f)) {
+                                TextSmall(
+                                    textAlign = TextAlign.Start,
+                                    fontSize = Dimens.textSize12sp,
+                                    color = AppTheme.colors.text.white,
+                                    text = stringResource(Res.string.home_bills),
+                                )
+                                Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height7))
+                                TextMedium(
+                                    textAlign = TextAlign.Start,
+                                    fontSize = Dimens.textSize14sp,
+                                    color = AppTheme.colors.text.white,
+                                    text = "-$"+summary?.expenses.orEmpty()
+                                )
                             }
                         }
                     }
                 }
-            } ?: run {
-                CircularProgressIndicator(
-                    color = AppTheme.colors.primary,
-                )
             }
-            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height28))
-            TextNormalBold(
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start,
-                fontSize = Dimens.textSize18sp,
-                color = AppTheme.colors.text.black,
-                text = stringResource(Res.string.home_month)
+        } ?: run {
+            CircularProgressIndicator(
+                color = AppTheme.colors.primary,
             )
-            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height14))
-            Row(modifier = Modifier.fillMaxWidth()) {
-                BalanceCard(
-                    modifier = Modifier.weight(1f),
-                    title = stringResource(Res.string.home_bills),
-                    amount = "$"+summary?.expenses.orEmpty(),
-                    percentage = stringResource(Res.string.home_down_percentage),
-                )
-                Spacer(modifier = Modifier.fillMaxWidth().weight(.2f))
-                BalanceCard(
-                    modifier = Modifier.weight(1f),
-                    title = stringResource(Res.string.home_saving),
-                    amount = "$"+summary?.income.orEmpty(),
-                    percentage = stringResource(Res.string.home_up_percentage),
-                )
-            }
-            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
-            LazyColumnExample()
-        /*Transactions(
-                transactions = transactions,
-                transactionError = transactionError
-            )*/
-            Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
-        //}
+        }
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height28))
+        TextNormalBold(
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start,
+            fontSize = Dimens.textSize18sp,
+            color = AppTheme.colors.text.black,
+            text = stringResource(Res.string.home_month)
+        )
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height14))
+        Row(modifier = Modifier.fillMaxWidth()) {
+            BalanceCard(
+                modifier = Modifier.weight(1f),
+                title = stringResource(Res.string.home_bills),
+                amount = "$"+summary?.expenses.orEmpty(),
+                percentage = stringResource(Res.string.home_down_percentage),
+            )
+            Spacer(modifier = Modifier.fillMaxWidth().weight(.2f))
+            BalanceCard(
+                modifier = Modifier.weight(1f),
+                title = stringResource(Res.string.home_saving),
+                amount = "$"+summary?.income.orEmpty(),
+                percentage = stringResource(Res.string.home_up_percentage),
+            )
+        }
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
+        Transactions(
+            transactions = transactions,
+            transactionError = transactionError
+        )
+        Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
+        
     }
 }
 

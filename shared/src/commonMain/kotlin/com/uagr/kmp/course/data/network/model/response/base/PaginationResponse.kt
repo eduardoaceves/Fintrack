@@ -7,5 +7,5 @@ data class Pagination(
     val total: Int?,
     val pages: Int?,
     val page: Int?,
-    val pageSize: Int?
+    val page_size: Int?
 )

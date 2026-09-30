@@ -14,6 +14,7 @@ import com.uagr.kmp.course.presentation.component.container.SafeScreenContainer
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.dialog.DialogCustom
 import com.uagr.kmp.course.presentation.component.loader.Loader
+import com.uagr.kmp.course.presentation.component.transactions.LazyColumnExample
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.ui.login.viewmodel.LoginUiEvent
 import com.uagr.kmp.course.presentation.ui.login.viewmodel.LoginViewModel
@@ -43,6 +44,7 @@ fun LoginScreen(
     SafeScreenContainer(
         modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
     ) {
+        //LazyColumnExample()
         LoginContainer(
             email = loginUiState.email,
             emailError = loginUiState.emailError,
@@ -80,7 +82,7 @@ fun LoginScreen(
             primaryButtonTextColor = AppTheme.colors.text.white,
             onPrimaryButtonClick = {
                 viewModel.dismissErrorDialog()
-            },
+            }
         )
     }
 }

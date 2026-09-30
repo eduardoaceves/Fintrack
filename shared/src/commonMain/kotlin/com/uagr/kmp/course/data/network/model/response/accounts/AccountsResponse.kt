@@ -16,7 +16,7 @@ data class AccountsResponse(
 
 @Serializable
 data class AccountsItemResponse(
-    val isActive: Boolean?,
+    val is_active: Boolean?,
     val color: String?,
     val updated_at: String?,
     val name: String?,
