@@ -76,3 +76,7 @@ shared/build/
 shared/build
 androidApp/build/
 androidApp/build
+.kotlin/metadata
+.kotlin/metadata/
+.kotlin
+.kotlin/

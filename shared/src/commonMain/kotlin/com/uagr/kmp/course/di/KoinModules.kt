@@ -4,8 +4,9 @@
 */
 package com.uagr.kmp.course.di
 
+//TODO:ROOM3
 import com.uagr.kmp.course.data.local.database.AppDatabase
-import com.uagr.kmp.course.data.local.database.getDatabaseBuilder
+import com.uagr.kmp.course.data.local.database.getDataBaseBuilder
 import com.uagr.kmp.course.data.local.datastore.AppDataStore
 import com.uagr.kmp.course.data.local.datastore.createDataStore
 import com.uagr.kmp.course.data.network.client.createHttpClient
@@ -21,15 +22,16 @@ import org.koin.core.annotation.Single
 @ComponentScan("com.uagr.kmp")
 @Configuration
 class KoinModules {
-
     @Single
     fun ioDispatcher(): CoroutineDispatcher = Dispatchers.IO
-
     @Single
     fun httpClient(appDataStore: AppDataStore) = createHttpClient(appDataStore = appDataStore)
-
+    
     @Single
-    fun appDatabase() = getDatabaseBuilder()
+    fun dataStore() = createDataStore()
+    
+    @Single
+    fun appDatabase() = getDataBaseBuilder()
         .setQueryCoroutineContext(Dispatchers.IO)
         .build()
 
@@ -38,7 +40,6 @@ class KoinModules {
 
     @Single
     fun packagesDao(database: AppDatabase) = database.packagesDao()
-
-    @Single
-    fun dataStore() = createDataStore()
+    
+    
 }

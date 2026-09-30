@@ -19,5 +19,6 @@ data class HomeUiState (
     val transactions : TransactionsDataModel? = null,
     val errorDialog : ErrorDialogModel? = null,
     val errorTransactions : Boolean = false,
+    val errorEmptyAccounts : Boolean = false,
     val isLoading : StatusLoading = StatusLoading.DISMISS_LOADING,
 )

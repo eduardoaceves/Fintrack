@@ -7,6 +7,7 @@ package com.uagr.kmp.course.domain.mapper.user
 import com.uagr.kmp.course.data.local.model.user.UserEntity
 import com.uagr.kmp.course.domain.model.user.UserDataModel
 
+
 fun UserEntity.toDomain(): UserDataModel =
     UserDataModel(
         id = id,

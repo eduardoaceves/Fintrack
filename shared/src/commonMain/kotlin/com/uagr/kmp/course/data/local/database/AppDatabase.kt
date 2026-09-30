@@ -4,20 +4,25 @@
  */
 package com.uagr.kmp.course.data.local.database
 
-import androidx.room.ConstructedBy
-import androidx.room.Database
-import androidx.room.RoomDatabase
+import androidx.room3.ConstructedBy
+import androidx.room3.Database
+import androidx.room3.RoomDatabase
+import androidx.room3.RoomDatabaseConstructor
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.uagr.kmp.course.data.local.database.dao.AppDatabaseConstructor
 import com.uagr.kmp.course.data.local.database.dao.packages.PackagesDao
 import com.uagr.kmp.course.data.local.database.dao.user.UserDao
 import com.uagr.kmp.course.data.local.model.packages.PackagesEntity
 import com.uagr.kmp.course.data.local.model.user.UserEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 
 @Database(
     entities = [
         UserEntity::class,
         PackagesEntity::class
     ],
-    version = 2,
+    version = 1,
     exportSchema = false,
 )
 @ConstructedBy(AppDatabaseConstructor::class)
@@ -27,4 +32,16 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
 }
 
-expect fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase>
+/*@Suppress("KotlinNoActualForExpect")
+expect object AppDatabaseConstructor : RoomDatabaseConstructor<AppDatabase> {
+    override fun initialize(): AppDatabase
+}*/
+
+/*fun getRoomDatabase(
+    builder: RoomDatabase.Builder<AppDatabase>
+): AppDatabase {
+    return builder
+        .setDriver(BundledSQLiteDriver())
+        .setQueryCoroutineContext(Dispatchers.IO)
+        .build()
+}*/

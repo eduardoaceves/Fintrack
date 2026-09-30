@@ -30,9 +30,7 @@ lib-ktor = "3.6.0"
 lib-ktor-okhttp = "3.6.0"
 lib-ktor-darwin = "3.6.0"
 lib-ktor-auth = "3.6.0"
-lib-sqlite = "2.7.1"
 lib-okhttp-profiler = "1.1.1"
-lib-room = "2.8.5"
 lib-datastore = "1.2.1"
 # Plugins
 lib-agp = "9.2.1"
@@ -47,6 +45,9 @@ kotlinStdlib = "2.4.20"
 runner = "1.7.0"
 core = "1.7.0"
 datatime = "0.8.0"
+# room3
+room3 = "3.1.0-alpha01"
+sqlite = "2.7.1"
 
 [libraries]
 # AndroidX
@@ -94,10 +95,10 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "lib
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "lib-ktor-darwin" }
 ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "lib-ktor-auth" }
 
-# Room
-androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "lib-sqlite" }
-androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "lib-room" }
-androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "lib-room" }
+# Room3
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+androidx-room3-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room3" }
+androidx-room3-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room3" }
 
 # Okhttp
 okhttp-profiler = { module = "io.nerdythings:okhttp-profiler", version.ref = "lib-okhttp-profiler" }
@@ -145,13 +146,14 @@ sharedUI-commons-libs = [
     'ktor-auth',
     # Okhttp
     'okhttp-profiler',
-    # Room
-    'androidx-room-runtime',
-    'androidx-sqlite-bundled',
     # Persistence
     'androidx-datastore',
     # Datetime
-    'kotlinx-datetime'
+    'kotlinx-datetime',
+    # Room3
+    'androidx-room3-runtime',
+    'androidx-sqlite-bundled',
+
 ]
 sharedUI-android-libs = [
     'androidx-core-ktx',
@@ -187,7 +189,7 @@ composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "lib-compos
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "lib-kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "lib-kotlin" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "lib-kotlin" }
-androidx-room = { id = "androidx.room", version.ref = "lib-room" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "lib-kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "lib-ksp" }
 koinCompiler = { id = "io.insert-koin.compiler.plugin", version.ref = "lib-koin-compiler" }
+androidx-room3 = { id = "androidx.room3", version.ref = "room3" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "lib-ksp" }

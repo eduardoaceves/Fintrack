@@ -15,6 +15,7 @@ object Dimens {
     val textSize10sp: TextUnit = 10.sp
     val textSize11sp: TextUnit = 11.sp
     val textSize12sp: TextUnit = 12.sp
+    val textSize13sp: TextUnit = 13.sp
     val textSize14sp: TextUnit = 14.sp
     val textSize18sp: TextUnit = 18.sp
     val textSize28sp: TextUnit = 28.sp

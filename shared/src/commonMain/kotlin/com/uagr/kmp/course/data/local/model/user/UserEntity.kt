@@ -4,8 +4,8 @@
  */
 package com.uagr.kmp.course.data.local.model.user
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room3.Entity
+import androidx.room3.PrimaryKey
 
 @Entity(tableName = "users")
 data class UserEntity(

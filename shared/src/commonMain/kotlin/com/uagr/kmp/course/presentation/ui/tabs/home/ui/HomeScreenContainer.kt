@@ -32,6 +32,7 @@ import com.uagr.kmp.course.presentation.component.text.TextMedium
 import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.component.text.TextSmall
+import com.uagr.kmp.course.presentation.component.transactions.LazyColumnExample
 import com.uagr.kmp.course.presentation.component.transactions.Transactions
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
@@ -172,10 +173,11 @@ fun HomeScreenContainer(
                 )
             }
             Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
-            Transactions(
+            LazyColumnExample()
+        /*Transactions(
                 transactions = transactions,
                 transactionError = transactionError
-            )
+            )*/
             Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
         //}
     }

@@ -4,15 +4,16 @@
  */
 package com.uagr.kmp.course.data.local.database
 
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room3.Room
+import androidx.room3.RoomDatabase
 import com.uagr.kmp.course.utils.constant.Constants
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.NSApplicationSupportDirectory
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSUserDomainMask
 
-actual fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> =
+
+actual fun getDataBaseBuilder(): RoomDatabase.Builder<AppDatabase> =
     Room.databaseBuilder<AppDatabase>(
         name = applicationSupportDirectory() + "/${Constants.DATABASE_NAME}"
     ).setDriver(androidx.sqlite.driver.bundled.BundledSQLiteDriver())

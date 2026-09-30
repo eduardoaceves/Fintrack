@@ -4,11 +4,11 @@
  */
 package com.uagr.kmp.course.data.local.database.dao.packages
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room3.Dao
+import androidx.room3.Insert
+import androidx.room3.OnConflictStrategy
+import androidx.room3.Query
+import androidx.room3.Transaction
 import com.uagr.kmp.course.data.local.model.packages.PackagesEntity
 
 @Dao
@@ -23,7 +23,7 @@ interface PackagesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPackages(packages: List<PackagesEntity>)
 
-    @Query("SELECT * FROM packages")
+    @Query(value = "SELECT * FROM packages")
     suspend fun getPackages(): List<PackagesEntity>
 
     @Query("DELETE FROM packages")

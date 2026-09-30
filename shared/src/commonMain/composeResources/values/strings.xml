@@ -12,6 +12,7 @@
     <!-- Error -->
     <string name="error">Error</string>
     <string name="please_try_again_later">Please try again later</string>
+    <string name="empty_accounts">Usuario sin cuentas</string>
 
     <!-- Welcome -->
     <string name="hello">¡Hello!</string>
