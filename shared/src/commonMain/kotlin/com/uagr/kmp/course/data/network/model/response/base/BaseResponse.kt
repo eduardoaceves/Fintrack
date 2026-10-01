@@ -11,8 +11,6 @@ open class BaseResponse(
     val success: Boolean? = true,
     val message: String? = "",
     val error : ErrorDataResponse? = ErrorDataResponse(
-        code = "",
-        message = "",
         details = null
     )
 )

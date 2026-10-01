@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -34,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.theme.AppTheme
@@ -42,6 +44,7 @@ import course.shared.generated.resources.Res
 import course.shared.generated.resources.example
 import course.shared.generated.resources.ic_example
 import course.shared.generated.resources.login_create_account
+import course.shared.generated.resources.transactions_filter_incomes
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -95,6 +98,37 @@ fun ButtonCustom(
             textAlign = textAlign,
             modifier = Modifier.fillMaxWidth(),
             color = textColor,
+            text = text,
+        )
+    }
+}
+
+@Composable
+fun TransactionButton(
+    onClick: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    backgroundButton: Color = Color.Black,
+    height: Dp = Dimens.height35,
+    width: Dp = Dimens.height35,
+    enabled: Boolean = true,
+    shape: Shape = RoundedCornerShape(size = Dimens.corner20),
+    textColor: Color = Color.White,
+    text: String = "",
+    fontSize: TextUnit = Dimens.textSize11sp,
+    textAlign : TextAlign = TextAlign.Start
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier.width(width),
+        colors = ButtonDefaults.buttonColors(containerColor = backgroundButton),
+        enabled = enabled,
+        shape = shape,
+    ) {
+        TextNormalBold(
+            textAlign = textAlign,
+            modifier = Modifier,
+            color = textColor,
+            fontSize = fontSize,
             text = text,
         )
     }
@@ -164,6 +198,15 @@ private fun ButtonCustomPreview() {
                 
                 }
             )
+            
+            TransactionButton(
+                backgroundButton = AppTheme.colors.backgrounds.redActive,
+                textColor = AppTheme.colors.backgrounds.white,
+                width = Dimens.height100,
+                text = stringResource(Res.string.transactions_filter_incomes),
+                fontSize = Dimens.textSize11sp
+            )
+            
         }
     }
 }

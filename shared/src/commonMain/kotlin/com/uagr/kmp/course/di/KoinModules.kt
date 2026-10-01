@@ -41,5 +41,6 @@ class KoinModules {
     @Single
     fun packagesDao(database: AppDatabase) = database.packagesDao()
     
-    
+    @Single
+    fun accountDao(database: AppDatabase) = database.accountDao()
 }

@@ -32,6 +32,7 @@ import course.shared.generated.resources.Res
 import course.shared.generated.resources.ic_dot
 import org.jetbrains.compose.resources.painterResource
 
+@Suppress("SuspiciousIndentation")
 @Composable
 fun TransactionItem(
     transaction: TransactionItemModel
@@ -43,14 +44,9 @@ fun TransactionItem(
     else
         AppTheme.colors.backgrounds.greenActive
     
-    val symbol =
-        if(transaction.type.trim() == Constants.TRANSACTION_EXPEND)
-            "-$"
-        else
-            "+$"
+    val symbol = if(transaction.type.trim() == Constants.TRANSACTION_EXPEND) "-$"  else  "+$"
     
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(modifier = Modifier.fillMaxWidth().padding(vertical = Dimens.height11)) {
             SimpleCard(
                 paddingColumn = Dimens.padding2,
                 cardBackgroundColor =
@@ -97,15 +93,14 @@ fun TransactionItem(
                 )
             }
             TextMediumBold(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.weight(1f)
+                    .padding(end = Dimens.padding10),
                 textAlign = TextAlign.End,
                 fontSize = Dimens.textSize14sp,
                 color = activeColor,
                 text = symbol+transaction.amount
             )
         }
-        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height16))
-    }
 }
 
 @Preview(showBackground = true)

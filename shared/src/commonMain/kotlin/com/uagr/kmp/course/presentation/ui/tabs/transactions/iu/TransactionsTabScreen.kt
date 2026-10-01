@@ -43,7 +43,7 @@ object TransactionsTabScreen : Tab {
                 Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center)
             {
-                TransactionsScreenContainer()
+                TransactionScreen()
             }
         }
     }

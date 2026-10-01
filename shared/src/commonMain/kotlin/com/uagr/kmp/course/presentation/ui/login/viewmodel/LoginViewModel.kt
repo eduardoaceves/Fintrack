@@ -51,6 +51,10 @@ class LoginViewModel(
         if(email.length < Constants.EMAIL_LENGTH) {
             _loginUiState.update { state -> state.copy(email = email) }
         }
+        loginFormErrors(
+            emailError = "",
+            passwordError = ""
+        )
     }
     
     init{
@@ -64,6 +68,10 @@ class LoginViewModel(
         if(password.length < Constants.PASSWORD_LENGTH) {
             _loginUiState.update { state -> state.copy(password = password) }
         }
+        loginFormErrors(
+            emailError = "",
+            passwordError = ""
+        )
     }
 
     fun updatePasswordVisible(passwordVisible: Boolean) = viewModelScope.launch {
@@ -156,21 +164,7 @@ class LoginViewModel(
             }
         }
     }
-
-    /*private fun insertUserAndDelete(loginData: LoginDataModel) = viewModelScope.launch {
-       insertUserAndDeleteUseCase(user = loginData.user)
-            .catch {
-                _loginUiState.update { state ->
-                    state.copy(
-                        isLoading = StatusLoading.DISMISS_LOADING,
-                        errorDialog = setErrorDialog(),
-                    )
-                }
-            }.collect {
-                saveUserToken(loginData = loginData)
-            }
-    }*/
-
+    
     private fun saveUserToken(userToken: UserTokensModel) = viewModelScope.launch {
        saveUserTokenUseCase(token = userToken)
             .catch {

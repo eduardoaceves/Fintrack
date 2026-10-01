@@ -12,9 +12,10 @@ object Constants {
     const val DATABASE_NAME = "kmp_course_DB"
     const val USER_TOKEN = "user_token"
     const val REFRESH_TOKEN = "refresh_token"
+    const val ACCOUNT_ID = "account_id"
     const val DATASTORE_NAME = "kmp_dataStore"
     const val PASSWORD_LENGTH = 20
-    const val EMAIL_LENGTH = 40
+    const val EMAIL_LENGTH = 60
     const val NAME_LENGTH = 30
     const val TRANSACTION_INCOME = "INCOME"
     const val TRANSACTION_EXPEND = "EXPENSE"

@@ -22,8 +22,6 @@ val transactionDataMock: TransactionItemModel =
         transactionDate = "2026-09-24T18:30:00Z"
     )
 
-
-
 val TransactionsDataModelMock: TransactionsDataModel =
     TransactionsDataModel(
         items = listOf(
@@ -70,6 +68,72 @@ val TransactionsDataModelMock: TransactionsDataModel =
                 description = "Luz",
                 notes = "Servicios",
                 transactionDate = "2026-09-24T18:30:00Z"
+            ),
+            TransactionItemModel(
+                id = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                accountId = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                categoryId=  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                currency = "MXN",
+                type=  "EXPEND",
+                amount = "-$500",
+                description = "Luz",
+                notes = "Servicios",
+                transactionDate = "2026-09-26T18:30:00Z"
+            ),
+            TransactionItemModel(
+                id = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                accountId = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                categoryId=  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                currency = "MXN",
+                type=  "EXPEND",
+                amount = "-$500",
+                description = "Luz",
+                notes = "Servicios",
+                transactionDate = "2026-09-26T18:30:00Z"
+            ),
+            TransactionItemModel(
+                id = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                accountId = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                categoryId=  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                currency = "MXN",
+                type=  "EXPEND",
+                amount = "-$500",
+                description = "Luz",
+                notes = "Servicios",
+                transactionDate = "2026-09-26T18:30:00Z"
+            ),
+            TransactionItemModel(
+                id = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                accountId = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                categoryId=  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                currency = "MXN",
+                type=  "EXPEND",
+                amount = "-$500",
+                description = "Luz",
+                notes = "Servicios",
+                transactionDate = "2026-09-15T18:30:00Z"
+            ),
+            TransactionItemModel(
+                id = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                accountId = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                categoryId=  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                currency = "MXN",
+                type=  "EXPEND",
+                amount = "-$500",
+                description = "Luz",
+                notes = "Servicios",
+                transactionDate = "2026-09-15T18:30:00Z"
+            ),
+            TransactionItemModel(
+                id = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                accountId = "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                categoryId=  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                currency = "MXN",
+                type=  "EXPEND",
+                amount = "-$500",
+                description = "Luz",
+                notes = "Servicios",
+                transactionDate = "2026-09-15T18:30:00Z"
             ),
         )
     )

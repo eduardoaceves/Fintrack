@@ -8,6 +8,7 @@ import com.uagr.kmp.course.data.network.model.response.transactions.TransactionI
 import com.uagr.kmp.course.data.network.model.response.transactions.TransactionsResponse
 import com.uagr.kmp.course.domain.model.transations.TransactionItemModel
 import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
+import com.uagr.kmp.course.utils.text.getTransactionDate
 
 
 fun TransactionsResponse.toDomain() : TransactionsDataModel =
@@ -18,7 +19,7 @@ fun TransactionsResponse.toDomain() : TransactionsDataModel =
 fun TransactionItemResponse.toDomain() : TransactionItemModel =
     TransactionItemModel(
         id = id.orEmpty(),
-        transactionDate = transaction_date.orEmpty(),
+        transactionDate = getTransactionDate(transaction_date.orEmpty()),
         amount = amount.orEmpty(),
         accountId = account_id.orEmpty(),
         notes = notes.orEmpty(),

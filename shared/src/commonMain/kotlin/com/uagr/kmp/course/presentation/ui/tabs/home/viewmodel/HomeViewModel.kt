@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.uagr.kmp.course.domain.model.accounts.AccountsDataModel
 import com.uagr.kmp.course.domain.model.base.ErrorDialogModel
 import com.uagr.kmp.course.domain.usecase.accounts.GetAccountsUseCase
+import com.uagr.kmp.course.domain.usecase.accounts.InsertAndDeleteAccountUseCase
 import com.uagr.kmp.course.domain.usecase.summary.SummaryUseCase
 import com.uagr.kmp.course.domain.usecase.transactions.GetLastMovesUseCase
 import com.uagr.kmp.course.utils.constant.NetworkUrl
@@ -33,7 +34,8 @@ import org.koin.core.annotation.KoinViewModel
 class HomeViewModel(
     private val getAccountsUseCase: GetAccountsUseCase,
     private val getSummaryUseCase: SummaryUseCase,
-    private val getLastMovesUseCase: GetLastMovesUseCase
+    private val getLastMovesUseCase: GetLastMovesUseCase,
+    private val insertAndDeleteAccountUseCase: InsertAndDeleteAccountUseCase,
 ) : ViewModel() {
     
     private var _homeUiState = MutableStateFlow(HomeUiState())
@@ -61,9 +63,7 @@ class HomeViewModel(
                     is NetworkResult.Success -> {
                         result.response.let{ accounts ->
                             if(accounts.items.isNotEmpty()){
-                                getSummary(accountsDataModel = accounts)
-                                getLastMoves(accountsDataModel = accounts)
-                                _homeUiState.update { state -> state.copy(isLoading = StatusLoading.DISMISS_LOADING, accounts = accounts) }
+                                saveAccountID(accountsDataModel = accounts)
                             } else {
                                 _homeUiState.update { state ->
                                     state.copy(
@@ -89,6 +89,22 @@ class HomeViewModel(
                     }
                 }
             }
+    }
+    
+    private fun saveAccountID(accountsDataModel: AccountsDataModel) = viewModelScope.launch {
+        if(accountsDataModel.items.isNotEmpty()){
+            insertAndDeleteAccountUseCase(accountModel = accountsDataModel.items[0])
+                .catch {
+                    _homeUiState.update { state -> state.copy(
+                        isLoading = StatusLoading.DISMISS_LOADING,
+                        errorDialog = setErrorDialog(),
+                    ) }
+                }.collect {
+                    getSummary(accountsDataModel = accountsDataModel)
+                    getLastMoves(accountsDataModel = accountsDataModel)
+                    _homeUiState.update { state -> state.copy(isLoading = StatusLoading.DISMISS_LOADING, accounts = accountsDataModel) }
+                }
+        }
     }
     
     private fun getSummary(accountsDataModel: AccountsDataModel) = viewModelScope.launch {

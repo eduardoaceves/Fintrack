@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -30,6 +31,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.text.TextMedium
 import com.uagr.kmp.course.presentation.component.text.TextMediumBold
@@ -39,8 +41,10 @@ import com.uagr.kmp.course.presentation.theme.Dimens
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.example
 import course.shared.generated.resources.ic_example
+import course.shared.generated.resources.ic_search
 import course.shared.generated.resources.ic_visibility_off
 import course.shared.generated.resources.ic_visibility_on
+import course.shared.generated.resources.transactions_filter_searc
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -200,6 +204,74 @@ fun TextFieldPassword(
     )
 }
 
+@Composable
+fun TextFieldSearch(
+    modifier: Modifier = Modifier,
+    text : String,
+    onTextChange: (String) -> Unit,
+    fontSize: TextUnit = Dimens.textSizeNormal,
+    labelColor: Color,
+    label: String,
+    labelTextAlign: TextAlign = TextAlign.Start,
+    placeholderColor: Color,
+    placeholder: String,
+    placeholderTextAlign: TextAlign = TextAlign.Start,
+    keyboardType: KeyboardType = KeyboardType.Text,
+    imeAction: ImeAction = ImeAction.Done,
+    capitalization: KeyboardCapitalization = KeyboardCapitalization.Words,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+) {
+    OutlinedTextField(
+        modifier = modifier.fillMaxWidth(),
+        value = text,
+        onValueChange = onTextChange,
+        textStyle = TextStyle(
+            fontSize = fontSize,
+            fontWeight = FontWeight.Normal,
+        ),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = keyboardType,
+            imeAction = imeAction,
+            capitalization = capitalization
+        ),
+        keyboardActions = keyboardActions,
+        /*label = {
+            TextMediumBold(
+                fontSize = Dimens.textSizeNormal,
+                color = labelColor,
+                text = label,
+                textAlign = labelTextAlign,
+            )
+        },*/
+        placeholder = {
+            TextMedium(
+                fontSize = Dimens.textSizeSmall,
+                color = placeholderColor,
+                text = placeholder,
+                textAlign = placeholderTextAlign,
+            )
+        },
+        leadingIcon = {
+            Icon(
+                painter = painterResource(Res.drawable.ic_search),
+                modifier = Modifier.size(18.dp),
+                contentDescription = null,
+            )
+        },
+        singleLine = true,
+        shape = RoundedCornerShape(Dimens.corner14),
+        colors = TextFieldDefaults.colors(
+            focusedTextColor = MaterialTheme.colorScheme.onBackground,
+            unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            disabledContainerColor = Color.Transparent,
+            focusedLabelColor = AppTheme.colors.text.gray,
+            unfocusedLabelColor = AppTheme.colors.text.gray
+        ),
+    )
+}
+
 @Preview(
     showBackground = true,
 )
@@ -235,6 +307,16 @@ private fun TextFieldPreview() {
                     placeholder = stringResource(Res.string.example),
                     trailingIconActive = Res.drawable.ic_visibility_on,
                     trailingIconInActive = Res.drawable.ic_visibility_off,
+                    keyboardType = KeyboardType.Password,
+                    capitalization = KeyboardCapitalization.None,
+                )
+                TextFieldSearch(
+                    text = "",
+                    onTextChange = {},
+                    labelColor = Color.Black,
+                    label = stringResource(Res.string.transactions_filter_searc),
+                    placeholderColor = Color.Black,
+                    placeholder = stringResource(Res.string.transactions_filter_searc),
                     keyboardType = KeyboardType.Password,
                     capitalization = KeyboardCapitalization.None,
                 )

@@ -6,6 +6,8 @@ package com.uagr.kmp.course.domain.repository.accounts
 
 import com.uagr.kmp.course.domain.model.accounts.AccountModel
 import com.uagr.kmp.course.domain.model.accounts.AccountsDataModel
+import com.uagr.kmp.course.domain.model.accounts.AccountsItemModel
+import com.uagr.kmp.course.domain.model.packages.PackagesDataModel
 import com.uagr.kmp.course.utils.network.NetworkResult
 import kotlinx.coroutines.flow.Flow
 
@@ -14,5 +16,7 @@ interface AccountsRepository {
     suspend fun getAccount(url : String) : Flow<NetworkResult<AccountModel>>
     suspend fun getAccounts(url : String) : Flow<NetworkResult<AccountsDataModel>>
     
-
+    suspend fun getAccountId(): Flow<String>
+    
+    suspend fun insertAndDeleteAccount(accountModel: AccountsItemModel) : Flow<Unit>
 }

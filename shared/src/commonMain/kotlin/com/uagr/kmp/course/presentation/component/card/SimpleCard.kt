@@ -33,7 +33,7 @@ fun SimpleCard(
     modifierCard: Modifier = Modifier,
     modifierColumn: Modifier = Modifier,
     cardBackgroundColor: Color = Color.White,
-    cardElevation: Dp = Dimens.elevation8,
+    cardElevation: Dp = Dimens.elevation4,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     paddingColumn: Dp = Dimens.padding16,

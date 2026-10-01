@@ -4,6 +4,7 @@
  */
 package com.uagr.kmp.course.domain.mapper.accounts
 
+import com.uagr.kmp.course.data.local.model.account.AccountEntity
 import com.uagr.kmp.course.data.network.model.response.accounts.AccountResponse
 import com.uagr.kmp.course.data.network.model.response.accounts.AccountsItemResponse
 import com.uagr.kmp.course.data.network.model.response.accounts.AccountsResponse
@@ -30,4 +31,12 @@ fun AccountsItemResponse.toDomain(): AccountsItemModel =
         name = name.orEmpty(),
         type = type.orEmpty(),
         current_balance = current_balance.orEmpty()
+    )
+
+fun AccountsItemModel.toEntity(): AccountEntity =
+    AccountEntity(
+        id = id,
+        name = name,
+        type = type,
+        currentBalance = current_balance
     )

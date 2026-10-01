@@ -173,7 +173,7 @@ fun LoginContainer(
                 onCreateAccountClick()
             }
         )
-        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height24))
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height50))
         /*ButtonCustom(
             modifier = Modifier.height(Dimens.height50),
             onClick = onHomeClick,

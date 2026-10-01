@@ -9,6 +9,20 @@
     <string name="Accept">Aceptar</string>
     <string name="Cancel">Cancelar</string>
 
+    <!-- Months -->
+    <string name="JANUARY">Enero</string>
+    <string name="FEBRUARY">Febrero</string>
+    <string name="MARCH">Marzo</string>
+    <string name="APRIL">Abril</string>
+    <string name="MAY">Mayo</string>
+    <string name="JUNE">Junio</string>
+    <string name="JULY">Julio</string>
+    <string name="AUGUST">Agosto</string>
+    <string name="SEPTEMBER">Septiembre</string>
+    <string name="OCTOBER">Octubre</string>
+    <string name="NOVEMBER">Noviembre</string>
+    <string name="DECEMBER">Diciembre</string>
+
     <!-- Error -->
     <string name="error">Error</string>
     <string name="please_try_again_later">Please try again later</string>

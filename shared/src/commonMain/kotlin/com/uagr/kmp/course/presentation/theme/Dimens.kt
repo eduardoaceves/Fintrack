@@ -69,6 +69,7 @@ object Dimens {
     val height42: Dp = 42.dp
     val height48: Dp = 48.dp
     val height50: Dp = 50.dp
+    val height60: Dp = 60.dp
     val height64: Dp = 64.dp
     val height80: Dp = 80.dp
     val height96: Dp = 96.dp
@@ -76,6 +77,9 @@ object Dimens {
     val height128: Dp = 128.dp
     val height150: Dp = 150.dp
     val height200: Dp = 200.dp
+    val height300: Dp = 300.dp
+    val height400: Dp = 400.dp
+    val height500: Dp = 500.dp
 
     // ------ Width ------
     val widthNome: Dp = 0.dp
@@ -90,7 +94,9 @@ object Dimens {
     val width48: Dp = 48.dp
     val width64: Dp = 64.dp
     val width80: Dp = 80.dp
+    val width90: Dp = 90.dp
     val width96: Dp = 96.dp
+    val width100: Dp = 100.dp
     val width128: Dp = 128.dp
 
     // ------ Padding ------
@@ -117,6 +123,7 @@ object Dimens {
     val corner4: Dp = 4.dp
     val corner8: Dp = 8.dp
     val corner12: Dp = 12.dp
+    val corner14: Dp = 14.dp
     val corner16: Dp = 16.dp
     val corner20: Dp = 20.dp
     val corner22: Dp = 22.dp
