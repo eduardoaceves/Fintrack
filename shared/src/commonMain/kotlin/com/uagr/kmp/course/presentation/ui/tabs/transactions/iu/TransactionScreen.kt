@@ -33,7 +33,10 @@ fun TransactionScreen(
             transactionError = transactionUiState.errorTransactions,
             searchText = transactionUiState.searchText,
             isSearching = transactionUiState.isSearching,
-            onValueChange = viewModel::onSearchTextChange
+            onValueChange = viewModel::onSearchTextChange,
+            filterTransactions = { filter ->
+                viewModel.filterTransactions(filter = filter)
+            }
         )
         Loader(isLoading = transactionUiState.isLoading)
         DialogCustom(

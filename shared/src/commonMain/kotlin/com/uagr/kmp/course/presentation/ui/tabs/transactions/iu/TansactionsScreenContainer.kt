@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Constraints
 import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
 import com.uagr.kmp.course.presentation.component.buton.TransactionButton
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
@@ -32,6 +33,7 @@ import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
+import com.uagr.kmp.course.utils.constant.Constants
 import com.uagr.kmp.course.utils.text.getTransactionTitle
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.server_error
@@ -48,7 +50,8 @@ fun TransactionsScreenContainer(
     transactionError : Boolean = false,
     isSearching : Boolean = false,
     searchText : String = "",
-    onValueChange : (String) -> Unit = {}
+    onValueChange : (String) -> Unit = {},
+    filterTransactions : (String) -> Unit = { _ -> }
 ){
     
     val scrollState = rememberScrollState()
@@ -88,7 +91,9 @@ fun TransactionsScreenContainer(
                 text = stringResource(Res.string.transactions_filter_all),
                 fontSize = Dimens.textSize11sp,
                 onClick = {
-                
+                    transactions?.let {
+                        filterTransactions(Constants.TRANSACTION_ALL)
+                    }
                 }
             )
             Spacer(Modifier.width(Dimens.padding10))
@@ -99,7 +104,9 @@ fun TransactionsScreenContainer(
                 text = stringResource(Res.string.transactions_filter_incomes),
                 fontSize = Dimens.textSize11sp,
                 onClick = {
-                
+                    transactions?.let {
+                        filterTransactions(Constants.TRANSACTION_INCOME)
+                    }
                 }
             )
             Spacer(Modifier.width(Dimens.padding10))
@@ -110,7 +117,9 @@ fun TransactionsScreenContainer(
                 text = stringResource(Res.string.transactions_filter_expends),
                 fontSize = Dimens.textSize11sp,
                 onClick = {
-                
+                    transactions?.let {
+                        filterTransactions(Constants.TRANSACTION_EXPEND)
+                    }
                 }
             )
         }

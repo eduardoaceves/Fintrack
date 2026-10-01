@@ -10,16 +10,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainer
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.ui.login.navigation.LoginNavigation
+import com.uagr.kmp.course.presentation.ui.tabs.home.navigation.TabNavigationItem
+import com.uagr.kmp.course.presentation.ui.tabs.transactions.iu.TransactionScreen
+import com.uagr.kmp.course.presentation.ui.tabs.transactions.iu.TransactionsTabScreen
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.ic_home
 import org.jetbrains.compose.resources.painterResource
 
-object HomeTabScreen : Tab {
+data object HomeTabScreen : Tab {
     
     override val options: TabOptions
         @Composable
@@ -37,12 +41,16 @@ object HomeTabScreen : Tab {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow.parent ?: LocalNavigator.currentOrThrow
+        val tabNavigator = LocalTabNavigator.current
         SafeScreenContainer(
             modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
         ) {
             HomeScreen(
                 onEmptyAccounts = {
                     navigator.push(LoginNavigation)
+                },
+                gotoSeeAll = {
+                    tabNavigator.current = TransactionsTabScreen
                 }
             )
         }

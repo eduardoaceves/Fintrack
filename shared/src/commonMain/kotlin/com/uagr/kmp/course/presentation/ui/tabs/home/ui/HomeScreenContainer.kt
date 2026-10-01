@@ -52,7 +52,8 @@ fun HomeScreenContainer(
     accounts : AccountsDataModel? = null,
     summary : SummaryDataModel? = null,
     transactions : TransactionsDataModel? = null,
-    transactionError : Boolean = false
+    transactionError : Boolean = false,
+    gotoSeeAll : () -> Unit = {},
 ){
     
     val scrollState = rememberScrollState()
@@ -103,7 +104,7 @@ fun HomeScreenContainer(
                             textAlign = TextAlign.Start,
                             fontSize = Dimens.textSizeBig,
                             color = AppTheme.colors.text.white,
-                            text = "$" + summary?.net,
+                            text = "$" + summary?.net.orEmpty(),
                         )
                         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height21))
                         Row(modifier = Modifier.fillMaxWidth())
@@ -120,7 +121,7 @@ fun HomeScreenContainer(
                                     textAlign = TextAlign.Start,
                                     fontSize = Dimens.textSize14sp,
                                     color = AppTheme.colors.text.white,
-                                    text = "+$"+summary?.income
+                                    text = "+$"+summary?.income.orEmpty()
                                 )
                             }
                             Column(modifier = Modifier.weight(1f)) {
@@ -174,7 +175,8 @@ fun HomeScreenContainer(
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
         Transactions(
             transactions = transactions,
-            transactionError = transactionError
+            transactionError = transactionError,
+            gotoSeeAll = gotoSeeAll
         )
         Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
         

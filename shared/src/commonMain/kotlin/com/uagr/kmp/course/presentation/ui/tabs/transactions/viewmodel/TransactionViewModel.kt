@@ -6,8 +6,11 @@ package com.uagr.kmp.course.presentation.ui.tabs.transactions.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.uagr.kmp.course.domain.mapper.packages.toEntity
+import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
 import com.uagr.kmp.course.domain.usecase.accounts.GetLocalAccountIdUseCase
 import com.uagr.kmp.course.domain.usecase.transactions.GetLastMovesUseCase
+import com.uagr.kmp.course.utils.constant.Constants
 import com.uagr.kmp.course.utils.constant.NetworkUrl
 import com.uagr.kmp.course.utils.network.NetworkResult
 import com.uagr.kmp.course.utils.operators.StatusLoading
@@ -74,7 +77,8 @@ class TransactionViewModel(
                         result.response.let { transactions ->
                             _transactionsUiState.update { state ->
                                 state.copy(isLoading = StatusLoading.DISMISS_LOADING,
-                                    transactions = transactions
+                                    transactions = transactions,
+                                    transactionList = transactions.items
                                 )
                             }
                         }
@@ -89,6 +93,12 @@ class TransactionViewModel(
                     }
                 }
             }
+        }
+    }
+    
+    fun filterTransactions(filter : String){
+        _transactionsUiState.update {
+            state -> state.copy(isLoading = StatusLoading.DISMISS_LOADING, searchText = filter)
         }
     }
 }

@@ -7,6 +7,7 @@ package com.uagr.kmp.course.presentation.component.transactions
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -52,7 +53,8 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun Transactions(
     transactions : TransactionsDataModel? = null,
-    transactionError : Boolean = false
+    transactionError : Boolean = false,
+    gotoSeeAll : () -> Unit = {},
 ){
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier.fillMaxWidth()) {
@@ -64,7 +66,10 @@ fun Transactions(
                 text = stringResource(Res.string.home_last_moves)
             )
             TextMediumBold(
-                modifier = Modifier.fillMaxWidth().weight(.4f),
+                modifier = Modifier.fillMaxWidth().weight(.4f)
+                    .clickable{
+                        gotoSeeAll()
+                    },
                 textAlign = TextAlign.End,
                 fontSize = Dimens.textSize12sp,
                 color = AppTheme.colors.text.blue,

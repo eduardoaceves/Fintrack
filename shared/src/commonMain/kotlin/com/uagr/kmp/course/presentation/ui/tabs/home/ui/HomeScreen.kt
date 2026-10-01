@@ -19,6 +19,7 @@ import org.koin.compose.viewmodel.koinViewModel
 fun HomeScreen(
     viewModel : HomeViewModel = koinViewModel(),
     onEmptyAccounts : () -> Unit = {},
+    gotoSeeAll : () -> Unit = {},
 ){
     
     val homeUiState by viewModel.homeUiState.collectAsStateWithLifecycle()
@@ -40,7 +41,8 @@ fun HomeScreen(
             accounts = homeUiState.accounts,
             summary =  homeUiState.summary,
             transactions = homeUiState.transactions,
-            transactionError = homeUiState.errorTransactions
+            transactionError = homeUiState.errorTransactions,
+            gotoSeeAll = gotoSeeAll
         )
         DialogCustom(
             errorDialog = homeUiState.errorDialog,

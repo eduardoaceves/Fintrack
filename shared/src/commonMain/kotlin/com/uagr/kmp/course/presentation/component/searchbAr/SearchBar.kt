@@ -1,5 +1,5 @@
 /*
- * searchbar.kt
+ * SearchBar.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.uagr.kmp.course.presentation.component.searchbAr
@@ -22,6 +22,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.uagr.kmp.course.domain.model.transations.TransactionItemModel
 import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.field.TextFieldSearch
@@ -29,6 +30,7 @@ import com.uagr.kmp.course.presentation.component.text.TextMedium
 import com.uagr.kmp.course.presentation.component.transactions.TransactionItem
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
+import com.uagr.kmp.course.utils.constant.Constants
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.transactions_filter_searc
 import org.jetbrains.compose.resources.stringResource
@@ -42,8 +44,10 @@ fun SimpleSearchBarExample(
     onValueChange : (String) -> Unit = {}
 ) {
     Column(modifier = Modifier.fillMaxSize()){
+        
+        
         TextFieldSearch(
-            text = searchText,
+            text = if(searchText == Constants.TRANSACTION_EXPEND || searchText == Constants.TRANSACTION_INCOME) "" else searchText,
             onTextChange = onValueChange,
             modifier = Modifier.fillMaxWidth(),
             labelColor = Color.Black,
@@ -64,7 +68,8 @@ fun SimpleSearchBarExample(
                 } else {
                     transactions?.items?.filter {
                         it.description.lowercase().contains(searchText.lowercase(), ignoreCase = false) ||
-                                it.notes.lowercase().contains(searchText.lowercase(), ignoreCase = false)
+                                it.notes.lowercase().contains(searchText.lowercase(), ignoreCase = false) ||
+                                it.type.lowercase().contains(searchText.lowercase(), ignoreCase = false)
                     }
                 }
             
