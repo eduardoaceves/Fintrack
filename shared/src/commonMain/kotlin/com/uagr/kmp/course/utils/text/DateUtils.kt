@@ -57,7 +57,7 @@ private fun getMonth(month: Month) : String{
         Month.JULY -> "Julio"
         Month.AUGUST -> "Agosto"
         Month.SEPTEMBER -> "Septiembre"
-        Month.OCTOBER -> "Octubre"
+        Month.OCTOBER -> "Septiembre"
         Month.NOVEMBER -> "Noviembre"
         Month.DECEMBER -> "Diciembre"
     }

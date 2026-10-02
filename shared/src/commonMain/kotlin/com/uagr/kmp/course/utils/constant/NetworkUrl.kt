@@ -15,5 +15,6 @@ object NetworkUrl {
     const val GET_ACCOUNTS_ENDPOINT = "api/v1/accounts"
     const val GET_SUMMARY_ENDPOINT = "api/v1/analytics/summary"
     const val GET_TRANSACTIONS_ENDPOINT = "api/v1/transactions"
-    
+    const val BUDGET_SUMMARY_ENDPOINT = "api/v1/budgets/summary"
+    const val BUDGETS_ENDPOINT = "api/v1/budgets"
 }

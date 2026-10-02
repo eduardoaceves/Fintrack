@@ -1,3 +1,7 @@
+/*
+ * BudgetsTabScreen.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.uagr.kmp.course.presentation.ui.tabs.budget.ui
 
 import androidx.compose.foundation.background
@@ -15,7 +19,7 @@ import course.shared.generated.resources.Res
 import course.shared.generated.resources.ic_budget
 import org.jetbrains.compose.resources.painterResource
 
-object BudgetTabScreen : Tab {
+object BudgetsTabScreen : Tab {
     
     override val options: TabOptions
         @Composable
@@ -40,7 +44,7 @@ object BudgetTabScreen : Tab {
                 contentAlignment = Alignment.Companion.Center
             )
             {
-                BudgetScreenContainer()
+                BudgetsScreen()
             }
         }
     }

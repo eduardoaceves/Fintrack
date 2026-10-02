@@ -6,18 +6,17 @@ fun validateEmailFormat(email : String) : Boolean {
     return email.matches(Regex(Constants.EMAIL_PATTERN))
 }
 
-fun compareDates(){
-    /*val d = "2026-09-24T18:30:00Z"
-    LocalDate.parse(d)
-    
-    val dateFormat = LocalDate.Format {
-        monthNumber(padding = Padding.SPACE)
-        char('/')
-        day()
-        char(' ')
-        year()
+fun getTransactionTitle(categoryID : String) : String{
+    return when(categoryID){
+        Constants.CATEGORY_TRANSPORT -> "Transporte"
+        Constants.CATEGORY_SUBSCRIPTIONS_POSTMAN -> "Subscripciones"
+        Constants.CATEGORY_SERVICES -> "Servicios"
+        Constants.CATEGORY_HEALTH -> "Salud"
+        Constants.CATEGORY_HOME -> "Casa"
+        Constants.CATEGORY_ENTERTAINMENT -> "Entretenimiento"
+        Constants.CATEGORY_BUYS -> "Compras"
+        Constants.CATEGORY_FEED -> "Alimentación"
+        Constants.CATEGORY_SALES -> "Ventas"
+        else -> "Otros"
     }
-    
-    val x = dateFormat*/
-    
 }

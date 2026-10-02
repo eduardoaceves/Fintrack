@@ -1,3 +1,7 @@
+/*
+ * TransactionScreen.kt
+ * Copyright (c) 2026. All rights reserved
+ */
 package com.uagr.kmp.course.presentation.ui.tabs.transactions.iu
 
 import androidx.compose.foundation.background

@@ -1,5 +1,5 @@
 /*
- * MovementsTabScreen.kt
+ * TransactionsTabScreen.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.uagr.kmp.course.presentation.ui.tabs.transactions.iu

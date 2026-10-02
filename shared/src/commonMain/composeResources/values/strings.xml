@@ -87,6 +87,10 @@
     <string name="budget_month_budget">Presupuesto mensual</string>
     <string name="budget_used">Usado</string>
     <string name="budget_by_category">Por categoría</string>
+    <string name="budget_category_feed">Alimentacion</string>
+    <string name="budget_category_transport">Transporte</string>
+    <string name="budget_category_entertainment">Entretenimiento</string>
+    <string name="budget_category_services">Servicios</string>
 
     <!-- Goals -->
     <string name="goals_title">Metas de ahorro</string>

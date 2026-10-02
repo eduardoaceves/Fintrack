@@ -4,11 +4,9 @@
  */
 package com.uagr.kmp.course.presentation.ui.tabs.home.navigation
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,7 +17,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
@@ -30,7 +27,7 @@ import com.uagr.kmp.course.presentation.component.text.TextSmallExtra
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
 import com.uagr.kmp.course.presentation.theme.Dimens.textSize10sp
-import com.uagr.kmp.course.presentation.ui.tabs.budget.ui.BudgetTabScreen
+import com.uagr.kmp.course.presentation.ui.tabs.budget.ui.BudgetsTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.goals.ui.GoalsTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.home.ui.HomeTabScreen
 import com.uagr.kmp.course.presentation.ui.tabs.transactions.iu.TransactionsTabScreen
@@ -52,7 +49,7 @@ data object HomeNavigation : Screen  {
                         ) {
                             TabNavigationItem(HomeTabScreen )
                             TabNavigationItem(TransactionsTabScreen)
-                            TabNavigationItem(BudgetTabScreen)
+                            TabNavigationItem(BudgetsTabScreen)
                             TabNavigationItem(GoalsTabScreen)
                         }
                     }
