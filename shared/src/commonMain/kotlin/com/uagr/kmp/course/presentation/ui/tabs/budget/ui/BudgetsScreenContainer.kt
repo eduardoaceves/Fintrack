@@ -81,7 +81,6 @@ fun BudgetScreenContainer(
             color = AppTheme.colors.text.black,
             text = stringResource(Res.string.budget_by_category)
         )
-        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height35))
         LazyColumnsBudgets(
             budgets = budgets,
             modifier = Modifier
