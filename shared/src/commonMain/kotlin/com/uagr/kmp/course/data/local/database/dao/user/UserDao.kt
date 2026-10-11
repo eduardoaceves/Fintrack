@@ -9,6 +9,7 @@ import androidx.room3.Insert
 import androidx.room3.OnConflictStrategy
 import androidx.room3.Query
 import androidx.room3.Transaction
+import com.uagr.kmp.course.data.local.model.packages.PackagesEntity
 import com.uagr.kmp.course.data.local.model.user.UserEntity
 
 @Dao
@@ -25,4 +26,8 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserEntity): Long
+    
+    @Query(value = "SELECT * FROM users LIMIT 1")
+    suspend fun getUser(): UserEntity
+    
 }

@@ -89,13 +89,13 @@ class BudgetsViewModel(
     }
     
     fun getBudgets() = viewModelScope.launch {
-        _budgetsUiUiState.update {
+        /*_budgetsUiUiState.update {
             it.copy(
                 budgets = budgetsDataMock,
                 isLoading = StatusLoading.DISMISS_LOADING
             )
-        }
-        /*getBudgetsUseCase(NetworkUrl.BUDGETS_ENDPOINT)
+        }*/
+        getBudgetsUseCase(NetworkUrl.BUDGETS_ENDPOINT)
             .catch {
                 _budgetsUiUiState.update {
                     it.copy(
@@ -126,7 +126,7 @@ class BudgetsViewModel(
                         }
                     }
                 }
-            }*/
+            }
     }
     
 }

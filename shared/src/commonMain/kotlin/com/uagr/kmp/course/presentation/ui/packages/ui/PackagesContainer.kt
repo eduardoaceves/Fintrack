@@ -62,7 +62,10 @@ fun PackagesContainer(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 private fun PackagesContainerPreview() {
     SafeScreenContainerTest {

@@ -1,16 +1,14 @@
 /*
- * Transactions.kt
+ * TransactionsContainer.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.uagr.kmp.course.presentation.component.transactions
+package com.uagr.kmp.course.presentation.component.lazyColumns.transactions
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
@@ -103,7 +101,10 @@ fun TransactionItem(
         }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun TransactionItemPreview() {
     SafeScreenContainerTest {

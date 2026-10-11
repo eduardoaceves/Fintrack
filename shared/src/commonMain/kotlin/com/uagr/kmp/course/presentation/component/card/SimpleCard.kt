@@ -56,7 +56,10 @@ fun SimpleCard(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 private fun SimpleCardPreview() {
     SafeScreenContainerTest {

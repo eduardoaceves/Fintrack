@@ -9,5 +9,7 @@ sealed class LoginValidationResult {
     data object EmailEmpty : LoginValidationResult()
     data object WrongEmailFormat : LoginValidationResult()
     data object PasswordEmpty : LoginValidationResult()
+    data object EmailWrongLength : LoginValidationResult()
+    data object PasswordWrongLength : LoginValidationResult()
     data object Success : LoginValidationResult()
 }

@@ -34,6 +34,7 @@ fun TransactionScreen(
     ) {
         TransactionsScreenContainer(
             transactions = transactionUiState.transactions,
+            filter = transactionUiState.filter,
             transactionError = transactionUiState.errorTransactions,
             searchText = transactionUiState.searchText,
             isSearching = transactionUiState.isSearching,
@@ -54,7 +55,10 @@ fun TransactionScreen(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun HomeScreenPreview() {
     SafeScreenContainerTest {

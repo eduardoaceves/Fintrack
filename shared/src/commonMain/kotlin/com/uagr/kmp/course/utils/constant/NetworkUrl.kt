@@ -8,7 +8,9 @@ object NetworkUrl {
     // Base url
     const val BASE_URL = "https://fintrack-hitss.onrender.com"
     // Endpoint
+    const val REFRESH_TOKENS_ENDPOINT = "/api/v1/auth/refresh"
     const val LOGIN_ENDPOINT = "api/v1/auth/login"
+    const val GET_USER_INFO_ENDPOINT = "/api/v1/users/me"
     const val REGISTER_ENDPOINT = "api/v1/auth/register"
     const val GET_PACKAGES_ENDPOINT = "api/v1/auth/register"
     const val GET_ACCOUNT_ENDPOINT = "api/v1/accounts"

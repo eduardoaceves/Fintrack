@@ -4,8 +4,10 @@
  */
 package com.uagr.kmp.course.data.network.datasource.budgest
 
+import com.uagr.kmp.course.data.network.model.response.budgets.BudgetsResponse
 import com.uagr.kmp.course.domain.model.budgets.BudgetSummaryModel
 import com.uagr.kmp.course.domain.model.budgets.BudgetsModel
+import com.uagr.kmp.course.domain.model.budgets.BudgetsModelItem
 import com.uagr.kmp.course.utils.network.NetworkResult
 
 interface BudgetsNetworkDataSource {

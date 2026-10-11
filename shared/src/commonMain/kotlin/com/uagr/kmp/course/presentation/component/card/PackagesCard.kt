@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.uagr.kmp.course.presentation.component.buton.ButtonCustom
-import com.uagr.kmp.course.presentation.component.buton.CircularIconButtonCustom
+import com.uagr.kmp.course.presentation.component.buton.CustomButton
+import com.uagr.kmp.course.presentation.component.buton.CircularIconButton
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.text.TextBigBold
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
@@ -70,7 +70,7 @@ fun PackagesCard(
                     textAlign = TextAlign.Left,
                 )
             }
-            CircularIconButtonCustom(
+            CircularIconButton(
                 backgroundButton = Color.Transparent,
                 borderColor = AppTheme.colors.primary,
                 iconColor = AppTheme.colors.primary,
@@ -112,7 +112,7 @@ fun PackagesCard(
 
         Spacer(modifier = Modifier.height(Dimens.height20))
 
-        ButtonCustom(
+        CustomButton(
             onClick = onClick,
             backgroundButton = AppTheme.colors.primary,
             textColor = AppTheme.colors.backgrounds.white,
@@ -121,7 +121,10 @@ fun PackagesCard(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 private fun PackagesCardPreview() {
     SafeScreenContainerTest {

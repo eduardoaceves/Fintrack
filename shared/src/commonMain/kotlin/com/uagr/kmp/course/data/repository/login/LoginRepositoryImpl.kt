@@ -26,7 +26,7 @@ class LoginRepositoryImpl(
         loginRequest: LoginRequest,
     ): Flow<NetworkResult<UserTokensModel>> = flow {
         emit(
-            loginNetworkDataSource.login(
+            value = loginNetworkDataSource.login(
                 url = url,
                 loginRequest = loginRequest,
             )

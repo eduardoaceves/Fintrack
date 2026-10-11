@@ -12,9 +12,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
 import com.uagr.kmp.course.presentation.ui.controller.NavigationController
+import com.uagr.kmp.course.presentation.ui.login.viewmodel.LoginViewModel
+import com.uagr.kmp.course.presentation.ui.tabs.home.navigation.HomeNavigation
 
 class MainActivity : FragmentActivity() {
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         enableEdgeToEdge()

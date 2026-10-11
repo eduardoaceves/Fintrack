@@ -4,8 +4,6 @@
  */
 package com.uagr.kmp.course.domain.model.budgets
 
-import kotlinx.serialization.SerialName
-
 data class BudgetsModel(
     val data : List<BudgetsModelItem>
 )

@@ -5,10 +5,12 @@
 package com.uagr.kmp.course.data.network.datasource.budgest
 
 import com.uagr.kmp.course.data.network.model.response.budgets.BudgetSummaryResponse
+import com.uagr.kmp.course.data.network.model.response.budgets.BudgetsItemResponse
 import com.uagr.kmp.course.data.network.model.response.budgets.BudgetsResponse
 import com.uagr.kmp.course.domain.mapper.budgets.toDomain
 import com.uagr.kmp.course.domain.model.budgets.BudgetSummaryModel
 import com.uagr.kmp.course.domain.model.budgets.BudgetsModel
+import com.uagr.kmp.course.domain.model.budgets.BudgetsModelItem
 import com.uagr.kmp.course.utils.network.NetworkResult
 import com.uagr.kmp.course.utils.network.safeApiCall
 import io.ktor.client.HttpClient
@@ -36,7 +38,6 @@ class BudgetsNetworkDataSourceImp(
               data.toDomain()
           }
       )
-    
     
     override suspend fun getBudgets(url: String): NetworkResult<BudgetsModel> =
         safeApiCall(

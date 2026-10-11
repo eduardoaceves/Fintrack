@@ -51,6 +51,10 @@ suspend inline fun <reified Response : BaseResponse, Domain> safeApiCall(
     } catch (exception: Exception) {
         exception.printStackTrace()
         when (exception) {
+            is HttpExceptions -> NetworkResult.Error(
+                message = "Error ${exception.message}",
+                errorType = NetworkErrorType.HTTP,
+            )
             is TimeoutCancellationException -> NetworkResult.Error(
                 message = "Error timeout: ${exception.message}",
                 errorType = NetworkErrorType.TIMEOUT,

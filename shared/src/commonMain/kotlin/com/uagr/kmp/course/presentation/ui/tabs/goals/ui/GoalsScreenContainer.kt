@@ -63,7 +63,10 @@ fun GoalsScreenContainer(){
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun GoalsScreenContainerContainerPreview() {
     SafeScreenContainerTest {

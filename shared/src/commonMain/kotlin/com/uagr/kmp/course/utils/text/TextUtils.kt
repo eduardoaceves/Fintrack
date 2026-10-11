@@ -2,8 +2,12 @@ package com.uagr.kmp.course.utils.text
 
 import com.uagr.kmp.course.utils.constant.Constants
 
-fun validateEmailFormat(email : String) : Boolean {
-    return email.matches(Regex(Constants.EMAIL_PATTERN))
+fun String.validateEmailFormat() : Boolean {
+    return this.matches(Regex(Constants.EMAIL_PATTERN))
+}
+
+fun String.validateLength(length : Int) : Boolean {
+    return this.length <= length
 }
 
 fun getTransactionTitle(categoryID : String) : String{

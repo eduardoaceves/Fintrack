@@ -2,6 +2,7 @@
  * SearchBar.kt
  * Copyright (c) 2026. All rights reserved
  */
+
 package com.uagr.kmp.course.presentation.component.searchbAr
 
 import androidx.compose.foundation.background
@@ -25,9 +26,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.uagr.kmp.course.domain.model.transations.TransactionItemModel
 import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
-import com.uagr.kmp.course.presentation.component.field.TextFieldSearch
+import com.uagr.kmp.course.presentation.component.field.SearchTextField
 import com.uagr.kmp.course.presentation.component.text.TextMedium
-import com.uagr.kmp.course.presentation.component.transactions.TransactionItem
+import com.uagr.kmp.course.presentation.component.lazyColumns.transactions.TransactionItem
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
 import com.uagr.kmp.course.utils.constant.Constants
@@ -37,16 +38,14 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleSearchBarExample(
+fun SearchBar(
     transactions : TransactionsDataModel? = null,
-    isSearching : Boolean = false,
+    filter : List<TransactionItemModel>? = null,
     searchText : String = "",
     onValueChange : (String) -> Unit = {}
 ) {
     Column(modifier = Modifier.fillMaxSize()){
-        
-        
-        TextFieldSearch(
+        SearchTextField(
             text = if(searchText == Constants.TRANSACTION_EXPEND || searchText == Constants.TRANSACTION_INCOME) "" else searchText,
             onTextChange = onValueChange,
             modifier = Modifier.fillMaxWidth(),
@@ -63,16 +62,6 @@ fun SimpleSearchBarExample(
             .height(Dimens.height500))
         {
             transactions.let {
-                val filter = if(searchText.isEmpty()){
-                   transactions?.items
-                } else {
-                    transactions?.items?.filter {
-                        it.description.lowercase().contains(searchText.lowercase(), ignoreCase = false) ||
-                                it.notes.lowercase().contains(searchText.lowercase(), ignoreCase = false) ||
-                                it.type.lowercase().contains(searchText.lowercase(), ignoreCase = false)
-                    }
-                }
-            
                 val sortedItems = filter?.sortedByDescending { it.transactionDate }
                 val groupedItems = sortedItems?.groupBy { it.transactionDate }
                 groupedItems?.forEach { (transactionDate, transactions) ->
@@ -101,10 +90,13 @@ fun SimpleSearchBarExample(
 }
 
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun SearchBarPreview() {
     SafeScreenContainerTest {
-        SimpleSearchBarExample()
+        SearchBar()
     }
 }

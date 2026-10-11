@@ -36,6 +36,7 @@ class HomeViewModel(
     private val getSummaryUseCase: SummaryUseCase,
     private val getLastMovesUseCase: GetLastMovesUseCase,
     private val insertAndDeleteAccountUseCase: InsertAndDeleteAccountUseCase,
+    
 ) : ViewModel() {
     
     private var _homeUiState = MutableStateFlow(HomeUiState())

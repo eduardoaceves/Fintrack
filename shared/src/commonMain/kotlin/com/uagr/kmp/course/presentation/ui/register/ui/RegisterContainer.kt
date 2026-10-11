@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
@@ -20,10 +21,10 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.uagr.kmp.course.presentation.component.buton.ButtonCustom
+import com.uagr.kmp.course.presentation.component.buton.CustomButton
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
-import com.uagr.kmp.course.presentation.component.field.TextFieldCustom
-import com.uagr.kmp.course.presentation.component.field.TextFieldPassword
+import com.uagr.kmp.course.presentation.component.field.EmailTextField
+import com.uagr.kmp.course.presentation.component.field.PasswordTextField
 import com.uagr.kmp.course.presentation.component.text.TextBigBold
 import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.theme.AppTheme
@@ -69,6 +70,7 @@ fun RegisterContainer(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .safeDrawingPadding()
             .padding(all = Dimens.padding16)
             .verticalScroll(state = scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -105,7 +107,7 @@ fun RegisterContainer(
             text = stringResource(Res.string.login_description),
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height32))
-        TextFieldCustom(
+        EmailTextField(
             value = name,
             errorText = nameError,
             onValueChange = onNameChange,
@@ -117,7 +119,7 @@ fun RegisterContainer(
             imeAction = ImeAction.Next,
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height12))
-        TextFieldCustom(
+        EmailTextField(
             value = email,
             errorText = emailError,
             onValueChange = onEmailChange,
@@ -129,7 +131,7 @@ fun RegisterContainer(
             imeAction = ImeAction.Next,
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height12))
-        TextFieldPassword(
+        PasswordTextField(
             password = password,
             onPasswordChange = onPasswordChange,
             errorText = passwordError,
@@ -145,7 +147,7 @@ fun RegisterContainer(
             imeAction = ImeAction.Next,
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height12))
-        TextFieldPassword(
+        PasswordTextField(
             password = confirmPassword,
             onPasswordChange = onConfirmPasswordChange,
             errorText = confirmPasswordError,
@@ -166,7 +168,7 @@ fun RegisterContainer(
             ),
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height100))
-        ButtonCustom(
+        CustomButton(
             modifier = Modifier.height(Dimens.height50),
             onClick = onRegisterClick,
             backgroundButton = AppTheme.colors.primary,
@@ -177,7 +179,10 @@ fun RegisterContainer(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun RegisterContainerPreview() {
     SafeScreenContainerTest {

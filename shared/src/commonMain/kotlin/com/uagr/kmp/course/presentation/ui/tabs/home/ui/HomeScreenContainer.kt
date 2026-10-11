@@ -5,6 +5,7 @@
 package com.uagr.kmp.course.presentation.ui.tabs.home.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,11 +30,11 @@ import com.uagr.kmp.course.presentation.component.card.BalanceCard
 import com.uagr.kmp.course.presentation.component.card.SimpleCard
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.text.TextMedium
+import com.uagr.kmp.course.presentation.component.text.TextMediumBold
 import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.component.text.TextSmall
-import com.uagr.kmp.course.presentation.component.transactions.LazyColumnExample
-import com.uagr.kmp.course.presentation.component.transactions.Transactions
+import com.uagr.kmp.course.presentation.component.lazyColumns.transactions.TransactionsContainer
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
 import course.shared.generated.resources.Res
@@ -41,8 +42,10 @@ import course.shared.generated.resources.home_bills
 import course.shared.generated.resources.home_down_percentage
 import course.shared.generated.resources.home_hello
 import course.shared.generated.resources.home_income
+import course.shared.generated.resources.home_last_moves
 import course.shared.generated.resources.home_month
 import course.shared.generated.resources.home_saving
+import course.shared.generated.resources.home_see_all
 import course.shared.generated.resources.home_title
 import course.shared.generated.resources.home_up_percentage
 import org.jetbrains.compose.resources.stringResource
@@ -173,17 +176,39 @@ fun HomeScreenContainer(
             )
         }
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
-        Transactions(
+        Row(modifier = Modifier.fillMaxWidth()) {
+            TextMedium(
+                modifier = Modifier.fillMaxWidth().weight(.6f),
+                textAlign = TextAlign.Start,
+                fontSize = Dimens.textSize18sp,
+                color = AppTheme.colors.text.black,
+                text = stringResource(Res.string.home_last_moves)
+            )
+            TextMediumBold(
+                modifier = Modifier.fillMaxWidth().weight(.4f)
+                    .clickable{
+                        gotoSeeAll()
+                    },
+                textAlign = TextAlign.End,
+                fontSize = Dimens.textSize12sp,
+                color = AppTheme.colors.text.blue,
+                text = stringResource(Res.string.home_see_all)
+            )
+        }
+        
+        TransactionsContainer(
             transactions = transactions,
             transactionError = transactionError,
-            gotoSeeAll = gotoSeeAll
         )
         Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
         
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun HomeScreenContainerPreview() {
     SafeScreenContainerTest {

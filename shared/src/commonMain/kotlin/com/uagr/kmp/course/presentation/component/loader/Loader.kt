@@ -2,6 +2,7 @@
  * Loader.kt
  * Copyright (c) 2026. All rights reserved
  */
+
 package com.uagr.kmp.course.presentation.component.loader
 
 import androidx.compose.foundation.background
@@ -43,7 +44,10 @@ fun Loader(
 
 
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 private fun LoaderPreview() {
     SafeScreenContainerTest {

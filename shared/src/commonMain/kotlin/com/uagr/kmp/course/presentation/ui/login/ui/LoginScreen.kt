@@ -2,6 +2,7 @@
  * LoginScreen.kt
  * Copyright (c) 2026. All rights reserved
  */
+
 package com.uagr.kmp.course.presentation.ui.login.ui
 
 import androidx.compose.foundation.background
@@ -42,16 +43,16 @@ fun LoginScreen(
     SafeScreenContainer(
         modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
     ) {
-        LoginContainer(
+        LoginScreenContainer(
             email = loginUiState.email,
             emailError = loginUiState.emailError,
             onEmailChanged = { email ->
-                viewModel.updateEmail(email =email)
+                viewModel.onTextChanged(email = email, password = loginUiState.password)
             },
             password = loginUiState.password,
             passwordError =  loginUiState.passwordError,
             onPasswordChanged = { password ->
-                viewModel.updatePassword(password = password)
+                viewModel.onTextChanged(email = loginUiState.email, password = password)
             },
             passwordVisible = loginUiState.passwordVisible,
             onPasswordVisibilityChanged = { passwordVisible ->
@@ -84,10 +85,13 @@ fun LoginScreen(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
-fun LoginScreenPreview() {
+fun LoginScreenScreenPreview() {
     SafeScreenContainerTest {
-        LoginContainer()
+        LoginScreenContainer()
     }
 }

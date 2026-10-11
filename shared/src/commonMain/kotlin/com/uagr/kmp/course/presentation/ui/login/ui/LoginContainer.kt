@@ -1,7 +1,8 @@
 /*
- * LoginContainer.kt
+ * LoginScreenContainer.kt
  * Copyright (c) 2026. All rights reserved
  */
+
 package com.uagr.kmp.course.presentation.ui.login.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -11,7 +12,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.verticalScroll
@@ -24,13 +27,12 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.uagr.kmp.course.presentation.component.buton.ButtonCustom
-import com.uagr.kmp.course.presentation.component.buton.SingleChoiceSegmentedButton
+import com.uagr.kmp.course.presentation.component.buton.CustomButton
 import com.uagr.kmp.course.presentation.component.buton.TextButton
 import com.uagr.kmp.course.presentation.component.card.SimpleCard
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
-import com.uagr.kmp.course.presentation.component.field.TextFieldCustom
-import com.uagr.kmp.course.presentation.component.field.TextFieldPassword
+import com.uagr.kmp.course.presentation.component.field.EmailTextField
+import com.uagr.kmp.course.presentation.component.field.PasswordTextField
 import com.uagr.kmp.course.presentation.component.text.TextBigBold
 import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
@@ -47,7 +49,6 @@ import course.shared.generated.resources.login_create_account
 import course.shared.generated.resources.login_description
 import course.shared.generated.resources.login_email
 import course.shared.generated.resources.login_email_example
-import course.shared.generated.resources.login_goto_home
 import course.shared.generated.resources.login_password
 import course.shared.generated.resources.login_password_example
 import course.shared.generated.resources.login_title
@@ -56,7 +57,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun LoginContainer(
+fun LoginScreenContainer(
     email : String = "",
     emailError : String = "",
     onEmailChanged : (String) -> Unit = {},
@@ -75,6 +76,7 @@ fun LoginContainer(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .safeDrawingPadding()
             .padding(all = Dimens.padding16)
             .verticalScroll(state = scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -123,7 +125,7 @@ fun LoginContainer(
             }
         }
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height50))
-        TextFieldCustom(
+        EmailTextField(
             value = email,
             errorText = emailError,
             onValueChange = onEmailChanged,
@@ -135,7 +137,7 @@ fun LoginContainer(
             imeAction = ImeAction.Next,
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height12))
-        TextFieldPassword(
+        PasswordTextField(
             password = password,
             errorText = passwordError,
             onPasswordChange = onPasswordChanged,
@@ -156,7 +158,7 @@ fun LoginContainer(
             ),
         )
         Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height28))
-        ButtonCustom(
+        CustomButton(
             modifier = Modifier.height(Dimens.height50),
             onClick = onLoginClick,
             backgroundButton = AppTheme.colors.primary,
@@ -185,10 +187,13 @@ fun LoginContainer(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
-fun LoginContainerPreview() {
+fun LoginScreenContainerPreview() {
     SafeScreenContainerTest {
-        LoginContainer()
+        LoginScreenContainer()
     }
 }

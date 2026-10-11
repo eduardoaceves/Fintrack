@@ -51,7 +51,10 @@ fun BudgetItemCard(
     
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun BudgetItemCardPreview() {
     SafeScreenContainerTest {

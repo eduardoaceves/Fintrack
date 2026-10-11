@@ -24,11 +24,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Constraints
+import com.uagr.kmp.course.domain.model.transations.TransactionItemModel
 import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
-import com.uagr.kmp.course.presentation.component.buton.TransactionButton
+import com.uagr.kmp.course.presentation.component.buton.FilterButton
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
-import com.uagr.kmp.course.presentation.component.searchbAr.SimpleSearchBarExample
+import com.uagr.kmp.course.presentation.component.searchbAr.SearchBar
 import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.theme.AppTheme
@@ -47,6 +47,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun TransactionsScreenContainer(
     transactions : TransactionsDataModel? = null,
+    filter : List<TransactionItemModel>? = null,
     transactionError : Boolean = false,
     isSearching : Boolean = false,
     searchText : String = "",
@@ -84,7 +85,7 @@ fun TransactionsScreenContainer(
         Row(modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Start)
         {
-            TransactionButton(
+            FilterButton(
                 backgroundButton = AppTheme.colors.backgrounds.blue,
                 textColor = AppTheme.colors.backgrounds.white,
                 width = Dimens.width100,
@@ -97,7 +98,7 @@ fun TransactionsScreenContainer(
                 }
             )
             Spacer(Modifier.width(Dimens.padding10))
-            TransactionButton(
+            FilterButton(
                 backgroundButton = AppTheme.colors.backgrounds.greenActive,
                 textColor = AppTheme.colors.backgrounds.white,
                 width = Dimens.width100,
@@ -110,7 +111,7 @@ fun TransactionsScreenContainer(
                 }
             )
             Spacer(Modifier.width(Dimens.padding10))
-            TransactionButton(
+            FilterButton(
                 backgroundButton = AppTheme.colors.backgrounds.redActive,
                 textColor = AppTheme.colors.backgrounds.white,
                 width = Dimens.width100,
@@ -125,10 +126,10 @@ fun TransactionsScreenContainer(
         }
         if(!transactionError){
             Spacer(Modifier.fillMaxWidth().height(Dimens.height20))
-            SimpleSearchBarExample(
+            SearchBar(
                 transactions = transactions,
                 searchText = searchText,
-                isSearching = isSearching,
+                filter = filter,
                 onValueChange = onValueChange
             )
             Spacer(Modifier.fillMaxWidth().height(Dimens.height60))
@@ -147,7 +148,10 @@ fun TransactionsScreenContainer(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun TransactionsScreenContainerPreview() {
     SafeScreenContainerTest {

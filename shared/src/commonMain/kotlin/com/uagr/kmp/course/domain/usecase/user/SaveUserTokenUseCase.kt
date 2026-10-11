@@ -10,10 +10,13 @@ import kotlinx.coroutines.flow.Flow
 import org.koin.core.annotation.Factory
 
 @Factory
-class SaveUserTokenUseCase(
+class SaveUserTokensUseCase(
     private val userRepository: UserRepository,
 ) {
-    suspend operator fun invoke(token: UserTokensModel?): Flow<Unit> =
+    suspend fun saveUserToken(token: UserTokensModel?): Flow<Unit> =
         userRepository.saveUserToken(token = token?.access_token.orEmpty())
+    
+    suspend fun saveUserRefreshToken(token: UserTokensModel?): Flow<Unit> =
+        userRepository.saveUserRefreshToken(refreshToken = token?.refresh_token.orEmpty())
 
 }

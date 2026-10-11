@@ -12,5 +12,9 @@ sealed class ValidateRegisterFormResult {
     data object PasswordEmpty : ValidateRegisterFormResult()
     data object ConfirmPasswordEmpty : ValidateRegisterFormResult()
     data object WrongPasswords : ValidateRegisterFormResult()
+    data object NameWrongLength : ValidateRegisterFormResult()
+    data object EmailWrongLength : ValidateRegisterFormResult()
+    data object PasswordWrongLength : ValidateRegisterFormResult()
+    data object ConfirmPasswordWrongLength : ValidateRegisterFormResult()
     data object Success : ValidateRegisterFormResult()
 }

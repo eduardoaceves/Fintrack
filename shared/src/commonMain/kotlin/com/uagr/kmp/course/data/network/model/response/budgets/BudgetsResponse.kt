@@ -4,18 +4,18 @@
  */
 package com.uagr.kmp.course.data.network.model.response.budgets
 
+import androidx.room3.Ignore
 import com.uagr.kmp.course.data.network.model.response.base.BaseResponse
-import com.uagr.kmp.course.data.network.model.response.packages.PackagesDataResponse
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.SerialName
 
 @Serializable
 data class BudgetsResponse(
-    val data: List<BudgetsResponseItem>?,
+    @Ignore
+    val data: List<BudgetsItemResponse>?
 ) : BaseResponse()
 
 @Serializable
-data class BudgetsResponseItem(
+data class BudgetsItemResponse(
     val id: String?,
     val category_id: String?,
     val amount: String?,
@@ -26,4 +26,4 @@ data class BudgetsResponseItem(
     val updated_at: String?,
     val version: Int?,
     
-) : BaseResponse()
+)

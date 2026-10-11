@@ -12,7 +12,6 @@ import com.uagr.kmp.course.presentation.component.text.TextMedium
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
-import com.uagr.kmp.course.presentation.ui.login.ui.LoginContainer
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.home_amount
 import course.shared.generated.resources.home_bills
@@ -56,7 +55,10 @@ fun BalanceCard(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun BalanceCardPreview() {
     SafeScreenContainerTest {

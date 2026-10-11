@@ -36,8 +36,9 @@ class TransactionViewModel(
         getLocalAccountId()
     }
     
-    fun onSearchTextChange(text : String) {
-        _transactionsUiState.update { state -> state.copy(searchText = text) }
+    fun onSearchTextChange(searchText : String) {
+        _transactionsUiState.update { state -> state.copy(searchText = searchText) }
+        updateFilter(searchText = searchText)
     }
     
     private fun getLocalAccountId() = viewModelScope.launch {
@@ -78,7 +79,8 @@ class TransactionViewModel(
                             _transactionsUiState.update { state ->
                                 state.copy(isLoading = StatusLoading.DISMISS_LOADING,
                                     transactions = transactions,
-                                    transactionList = transactions.items
+                                    filter = transactions.items,
+                                    transactionList = transactions.items,
                                 )
                             }
                         }
@@ -97,8 +99,30 @@ class TransactionViewModel(
     }
     
     fun filterTransactions(filter : String){
-        _transactionsUiState.update {
+        updateFilter(searchText = filter)
+        /*_transactionsUiState.update {
             state -> state.copy(isLoading = StatusLoading.DISMISS_LOADING, searchText = filter)
+        }*/
+    }
+    
+    private fun updateFilter(searchText: String){
+        if(transactionsUiState.value.transactions != null) {
+           val transactions = transactionsUiState.value.transactions
+            val filter = if(searchText.isEmpty()) {
+                transactions?.items
+            } else {
+                transactions?.items?.filter {
+                    it.description.lowercase().contains(searchText.lowercase(), ignoreCase = false) ||
+                            it.notes.lowercase().contains(searchText.lowercase(), ignoreCase = false) ||
+                            it.type.lowercase().contains(searchText.lowercase(), ignoreCase = false)
+                }
+            }
+            _transactionsUiState.update { state ->
+                state.copy(isLoading = StatusLoading.DISMISS_LOADING,
+                    filter = filter,
+                )
+            }
         }
     }
+    
 }

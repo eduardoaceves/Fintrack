@@ -5,8 +5,8 @@
 package com.uagr.kmp.course.domain.mapper.budgets
 
 import com.uagr.kmp.course.data.network.model.response.budgets.BudgetSummaryResponse
+import com.uagr.kmp.course.data.network.model.response.budgets.BudgetsItemResponse
 import com.uagr.kmp.course.data.network.model.response.budgets.BudgetsResponse
-import com.uagr.kmp.course.data.network.model.response.budgets.BudgetsResponseItem
 import com.uagr.kmp.course.domain.model.budgets.BudgetSummaryModel
 import com.uagr.kmp.course.domain.model.budgets.BudgetsModel
 import com.uagr.kmp.course.domain.model.budgets.BudgetsModelItem
@@ -21,12 +21,11 @@ fun BudgetSummaryResponse.toDomain(): BudgetSummaryModel =
 
 fun BudgetsResponse.toDomain(): BudgetsModel =
     BudgetsModel(
-        data = data?.map{
-                data -> data.toDomain()
-        } as List<BudgetsModelItem>
+        data = data?.map { data -> data.toDomain() } ?: emptyList(),
     )
 
-fun BudgetsResponseItem.toDomain(): BudgetsModelItem =
+
+fun BudgetsItemResponse.toDomain(): BudgetsModelItem =
     BudgetsModelItem(
         id = id.orEmpty(),
         category_id = category_id.orEmpty(),

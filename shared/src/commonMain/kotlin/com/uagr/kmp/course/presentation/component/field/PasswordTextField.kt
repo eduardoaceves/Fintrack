@@ -1,5 +1,5 @@
 /*
- * TextField.kt
+ * PasswordTextField.kt
  * Copyright (c) 2026. All rights reserved
  */
 package com.uagr.kmp.course.presentation.component.field
@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -50,78 +51,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun TextFieldCustom(
-    modifier: Modifier = Modifier,
-    value: String,
-    fontSize: TextUnit = Dimens.textSizeNormal,
-    onValueChange: (String) -> Unit,
-    labelColor: Color,
-    label: String,
-    labelTextAlign: TextAlign = TextAlign.Start,
-    placeholderColor: Color,
-    placeholder: String,
-    placeholderTextAlign: TextAlign = TextAlign.Start,
-    errorText : String? = "",
-    keyboardType: KeyboardType = KeyboardType.Text,
-    imeAction: ImeAction = ImeAction.Done,
-    capitalization: KeyboardCapitalization = KeyboardCapitalization.None,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-) {
-    OutlinedTextField(
-        modifier = modifier.fillMaxWidth(),
-        value = value,
-        onValueChange = onValueChange,
-        textStyle = TextStyle(
-            fontSize = fontSize,
-            fontWeight = FontWeight.Normal,
-        ),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = keyboardType,
-            imeAction = imeAction,
-            capitalization = capitalization
-        ),
-        keyboardActions = keyboardActions,
-        label = {
-            TextMediumBold(
-                fontSize = Dimens.textSizeNormal,
-                color = labelColor,
-                text = label,
-                textAlign = labelTextAlign,
-            )
-        },
-        placeholder = {
-            TextMedium(
-                fontSize = Dimens.textSizeNormal,
-                color = placeholderColor,
-                text = placeholder,
-                textAlign = placeholderTextAlign,
-            )
-        },
-        singleLine = true,
-        shape = RoundedCornerShape(Dimens.corner8),
-        supportingText = {
-            errorText?.let {
-                TextSmallExtra(
-                    color = AppTheme.colors.error,
-                    text = errorText,
-                    textAlign = TextAlign.Start
-                )
-            }
-        },
-        colors = TextFieldDefaults.colors(
-            focusedTextColor = MaterialTheme.colorScheme.onBackground,
-            unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
-            focusedContainerColor = Color.Transparent,
-            unfocusedContainerColor = Color.Transparent,
-            disabledContainerColor = Color.Transparent,
-            focusedLabelColor = AppTheme.colors.text.gray,
-            unfocusedLabelColor = AppTheme.colors.text.gray
-        ),
-    )
-}
-
-@Composable
-fun TextFieldPassword(
+fun PasswordTextField(
     modifier: Modifier = Modifier,
     password : String,
     onPasswordChange: (String) -> Unit,
@@ -204,76 +134,9 @@ fun TextFieldPassword(
     )
 }
 
-@Composable
-fun TextFieldSearch(
-    modifier: Modifier = Modifier,
-    text : String,
-    onTextChange: (String) -> Unit,
-    fontSize: TextUnit = Dimens.textSizeNormal,
-    labelColor: Color,
-    label: String,
-    labelTextAlign: TextAlign = TextAlign.Start,
-    placeholderColor: Color,
-    placeholder: String,
-    placeholderTextAlign: TextAlign = TextAlign.Start,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    imeAction: ImeAction = ImeAction.Done,
-    capitalization: KeyboardCapitalization = KeyboardCapitalization.Words,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-) {
-    OutlinedTextField(
-        modifier = modifier.fillMaxWidth(),
-        value = text,
-        onValueChange = onTextChange,
-        textStyle = TextStyle(
-            fontSize = fontSize,
-            fontWeight = FontWeight.Normal,
-        ),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = keyboardType,
-            imeAction = imeAction,
-            capitalization = capitalization
-        ),
-        keyboardActions = keyboardActions,
-        /*label = {
-            TextMediumBold(
-                fontSize = Dimens.textSizeNormal,
-                color = labelColor,
-                text = label,
-                textAlign = labelTextAlign,
-            )
-        },*/
-        placeholder = {
-            TextMedium(
-                fontSize = Dimens.textSizeSmall,
-                color = placeholderColor,
-                text = placeholder,
-                textAlign = placeholderTextAlign,
-            )
-        },
-        leadingIcon = {
-            Icon(
-                painter = painterResource(Res.drawable.ic_search),
-                modifier = Modifier.size(18.dp),
-                contentDescription = null,
-            )
-        },
-        singleLine = true,
-        shape = RoundedCornerShape(Dimens.corner14),
-        colors = TextFieldDefaults.colors(
-            focusedTextColor = MaterialTheme.colorScheme.onBackground,
-            unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
-            focusedContainerColor = Color.Transparent,
-            unfocusedContainerColor = Color.Transparent,
-            disabledContainerColor = Color.Transparent,
-            focusedLabelColor = AppTheme.colors.text.gray,
-            unfocusedLabelColor = AppTheme.colors.text.gray
-        ),
-    )
-}
-
 @Preview(
     showBackground = true,
+    showSystemUi = true
 )
 @Composable
 private fun TextFieldPreview() {
@@ -288,15 +151,7 @@ private fun TextFieldPreview() {
                 modifier = Modifier.padding(all = Dimens.padding16),
                 verticalArrangement = Arrangement.spacedBy(Dimens.padding16),
             ) {
-                TextFieldCustom(
-                    value = "",
-                    onValueChange = {},
-                    labelColor = Color.Black,
-                    label = stringResource(Res.string.example),
-                    placeholderColor = Color.Black,
-                    placeholder = stringResource(Res.string.example),
-                )
-                TextFieldPassword(
+                PasswordTextField(
                     password = "",
                     onPasswordChange = {},
                     passwordVisible = false,
@@ -307,16 +162,6 @@ private fun TextFieldPreview() {
                     placeholder = stringResource(Res.string.example),
                     trailingIconActive = Res.drawable.ic_visibility_on,
                     trailingIconInActive = Res.drawable.ic_visibility_off,
-                    keyboardType = KeyboardType.Password,
-                    capitalization = KeyboardCapitalization.None,
-                )
-                TextFieldSearch(
-                    text = "",
-                    onTextChange = {},
-                    labelColor = Color.Black,
-                    label = stringResource(Res.string.transactions_filter_searc),
-                    placeholderColor = Color.Black,
-                    placeholder = stringResource(Res.string.transactions_filter_searc),
                     keyboardType = KeyboardType.Password,
                     capitalization = KeyboardCapitalization.None,
                 )

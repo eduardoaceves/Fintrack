@@ -2,18 +2,20 @@
  * LoginViewModel.kt
  * Copyright (c) 2026. All rights reserved
  */
+
 package com.uagr.kmp.course.presentation.ui.login.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uagr.kmp.course.domain.model.base.ErrorDialogModel
+import com.uagr.kmp.course.domain.model.user.UserDataModel
 import com.uagr.kmp.course.domain.model.user.UserTokensModel
 import com.uagr.kmp.course.domain.usecase.login.LoginUseCase
 import com.uagr.kmp.course.domain.usecase.login.LoginValidationResult
 import com.uagr.kmp.course.domain.usecase.login.ValidateLoginFormUseCase
+import com.uagr.kmp.course.domain.usecase.user.GetRemoteUserInformationUseCase
 import com.uagr.kmp.course.domain.usecase.user.InsertUserAndDeleteUseCase
-import com.uagr.kmp.course.domain.usecase.user.SaveUserTokenUseCase
-import com.uagr.kmp.course.utils.constant.Constants
+import com.uagr.kmp.course.domain.usecase.user.SaveUserTokensUseCase
 import com.uagr.kmp.course.utils.constant.NetworkUrl
 import com.uagr.kmp.course.utils.network.NetworkResult
 import com.uagr.kmp.course.utils.operators.StatusLoading
@@ -37,8 +39,9 @@ import org.koin.core.annotation.KoinViewModel
 class LoginViewModel(
     private val validateLoginFormUseCase: ValidateLoginFormUseCase,
     private val loginUseCase: LoginUseCase,
+    private val getRemoteUserInformationUseCase: GetRemoteUserInformationUseCase,
     private val insertUserAndDeleteUseCase: InsertUserAndDeleteUseCase,
-    private val saveUserTokenUseCase: SaveUserTokenUseCase,
+    private val saveUserTokensUseCase: SaveUserTokensUseCase,
 ) : ViewModel() {
 
     private var _loginUiState = MutableStateFlow(LoginUiState())
@@ -46,16 +49,6 @@ class LoginViewModel(
 
     private var _loginUiEvent = MutableStateFlow<LoginUiEvent>(LoginUiEvent.Idle)
     val loginUiEvent: StateFlow<LoginUiEvent> = _loginUiEvent.asStateFlow()
-
-    fun updateEmail(email: String) = viewModelScope.launch {
-        if(email.length < Constants.EMAIL_LENGTH) {
-            _loginUiState.update { state -> state.copy(email = email) }
-        }
-        loginFormErrors(
-            emailError = "",
-            passwordError = ""
-        )
-    }
     
     init{
         _loginUiState.update { state -> state.copy(
@@ -63,17 +56,26 @@ class LoginViewModel(
             password = "Postman123!"
         ) }
     }
-
-    fun updatePassword(password: String) = viewModelScope.launch {
-        if(password.length < Constants.PASSWORD_LENGTH) {
-            _loginUiState.update { state -> state.copy(password = password) }
+    
+    fun onTextChanged(
+        email : String,
+        password : String,
+    ) = viewModelScope.launch {
+        when(validateLoginFormUseCase.validateLengthOnChange(
+            email = email,
+            password = password
+        )){
+            is LoginValidationResult.Success -> {
+                _loginUiState.update { state -> state.copy(
+                    email = email,
+                    password = password,
+                ) }
+                loginFormErrors()
+            }
+            else -> {}
         }
-        loginFormErrors(
-            emailError = "",
-            passwordError = ""
-        )
     }
-
+    
     fun updatePasswordVisible(passwordVisible: Boolean) = viewModelScope.launch {
         _loginUiState.update { state -> state.copy(passwordVisible = passwordVisible) }
     }
@@ -82,7 +84,7 @@ class LoginViewModel(
         email: String,
         password: String,
     ) = viewModelScope.launch {
-        when (validateLoginFormUseCase(
+        when (validateLoginFormUseCase.validateFormOnClick(
             email = email,
             password = password,
         )) {
@@ -166,7 +168,7 @@ class LoginViewModel(
     }
     
     private fun saveUserToken(userToken: UserTokensModel) = viewModelScope.launch {
-       saveUserTokenUseCase(token = userToken)
+        saveUserTokensUseCase.saveUserToken(token = userToken)
             .catch {
                 _loginUiState.update { state ->
                     state.copy(
@@ -175,8 +177,65 @@ class LoginViewModel(
                     )
                 }
         }.collect {
-            _loginUiEvent.emit(LoginUiEvent.LoginSuccess)
+           saveUserTokensUseCase.saveUserRefreshToken(token = userToken)
+               .catch {
+                   _loginUiState.update { state ->
+                       state.copy(
+                           isLoading = StatusLoading.DISMISS_LOADING,
+                           errorDialog = setErrorDialog(),
+                       )
+                   }
+               }.collect {
+                   getRemoteUserInformation()
+               }
         }
+    }
+    
+    private fun getRemoteUserInformation() = viewModelScope.launch {
+        getRemoteUserInformationUseCase(url = NetworkUrl.GET_USER_INFO_ENDPOINT)
+            .catch {
+                _loginUiState.update { state ->
+                    state.copy(
+                        isLoading = StatusLoading.DISMISS_LOADING,
+                        errorDialog = setErrorDialog(),
+                    )
+                }
+            }.collect { result ->
+                when (result) {
+                    is NetworkResult.Success -> {
+                        insertUserAndDelete(user = result.response)
+                    }
+                    
+                    is NetworkResult.Error -> {
+                        _loginUiState.update { state ->
+                            state.copy(
+                                isLoading = StatusLoading.DISMISS_LOADING,
+                                errorDialog = setErrorDialog(
+                                    message =
+                                        result.message.ifEmpty {
+                                            getString(Res.string.please_try_again_later)
+                                        }
+                                )
+                            )
+                        }
+                    }
+                }
+            }
+    }
+    
+    private fun insertUserAndDelete(user: UserDataModel) = viewModelScope.launch {
+        insertUserAndDeleteUseCase(user = user)
+            .catch {
+                _loginUiState.update { state ->
+                    state.copy(
+                        isLoading = StatusLoading.DISMISS_LOADING,
+                        errorDialog = setErrorDialog(),
+                    )
+                }
+            }
+            .collect {
+                _loginUiEvent.emit(LoginUiEvent.LoginSuccess)
+            }
     }
 
     private suspend fun setErrorDialog(message: String? = null): ErrorDialogModel =

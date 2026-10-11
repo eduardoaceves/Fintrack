@@ -13,13 +13,10 @@ import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerT
 import com.uagr.kmp.course.presentation.component.dialog.DialogCustom
 import com.uagr.kmp.course.presentation.component.loader.Loader
 import com.uagr.kmp.course.presentation.theme.AppTheme
-import com.uagr.kmp.course.presentation.ui.login.ui.LoginContainer
+import com.uagr.kmp.course.presentation.ui.login.ui.LoginScreenContainer
 import com.uagr.kmp.course.presentation.ui.register.viewModel.RegisterUiEvent
 import com.uagr.kmp.course.presentation.ui.register.viewModel.RegisterViewModel
 import com.uagr.kmp.course.utils.flow.CollectWithLifecycle
-import course.shared.generated.resources.Res
-import course.shared.generated.resources.empty_field
-import org.jetbrains.compose.resources.getString
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -49,17 +46,32 @@ fun RegisterScreen(
           name = registerUiState.name,
           nameError = registerUiState.nameError,
           onNameChange = { name ->
-              viewModel.onNameChanged(name = name)
+              viewModel.onTextChanged(
+                  name = name,
+                  email = registerUiState.email,
+                  password = registerUiState.password,
+                  confirmPassword = registerUiState.confirmPassword
+              )
           },
           email = registerUiState.email,
           emailError = registerUiState.emailError,
           onEmailChange = { email ->
-              viewModel.onEmailChanged(email = email)
+              viewModel.onTextChanged(
+                  name = registerUiState.name,
+                  email = email,
+                  password = registerUiState.password,
+                  confirmPassword = registerUiState.confirmPassword
+              )
           },
           password = registerUiState.password,
           passwordError = registerUiState.passwordError,
           onPasswordChange = { password ->
-              viewModel.onPasswordChanged(password = password)
+              viewModel.onTextChanged(
+                  name = registerUiState.name,
+                  email = registerUiState.email,
+                  password = password,
+                  confirmPassword = registerUiState.confirmPassword
+              )
           },
           passwordVisible = registerUiState.passwordVisible,
           onPasswordVisibleChange =  { isVisible ->
@@ -68,7 +80,12 @@ fun RegisterScreen(
           confirmPassword = registerUiState.confirmPassword,
           confirmPasswordError = registerUiState.confirmPasswordError,
           onConfirmPasswordChange = { confirmPassword ->
-              viewModel.onConfirmPasswordChanged(confirmPassword = confirmPassword)
+              viewModel.onTextChanged(
+                  name = registerUiState.name,
+                  email = registerUiState.email,
+                  password = registerUiState.password,
+                  confirmPassword = confirmPassword
+              )
           },
           confirmPasswordVisible = registerUiState.confirmPasswordVisible,
           onConfirmPasswordVisibleChange = { isVisible ->
@@ -102,10 +119,13 @@ fun RegisterScreen(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun RegisterScreenPreview() {
     SafeScreenContainerTest {
-        LoginContainer()
+        LoginScreenContainer()
     }
 }

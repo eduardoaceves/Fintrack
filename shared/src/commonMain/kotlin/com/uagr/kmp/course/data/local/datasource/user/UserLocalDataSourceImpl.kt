@@ -7,6 +7,7 @@ package com.uagr.kmp.course.data.local.datasource.user
 import com.uagr.kmp.course.data.local.database.dao.user.UserDao
 import com.uagr.kmp.course.data.local.datastore.AppDataStore
 import com.uagr.kmp.course.domain.mapper.packages.toDomain
+import com.uagr.kmp.course.domain.mapper.user.toDomain
 import com.uagr.kmp.course.domain.mapper.user.toEntity
 import com.uagr.kmp.course.domain.model.packages.PackagesDataModel
 import com.uagr.kmp.course.domain.model.user.UserDataModel
@@ -25,5 +26,13 @@ class UserLocalDataSourceImpl(
 
     override suspend fun saveUserToken(token: String) {
         appDataStore.saveUserToken(token = token)
+    }
+    
+    override suspend fun saveRefreshToken(refreshToken : String) {
+        appDataStore.saveRefreshToken(refreshToken = refreshToken)
+    }
+    
+    override suspend fun getUser(): UserDataModel {
+        return userDao.getUser().toDomain()
     }
 }

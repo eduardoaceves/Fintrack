@@ -5,8 +5,19 @@
 package com.uagr.kmp.course.domain.mapper.user
 
 import com.uagr.kmp.course.data.local.model.user.UserEntity
+import com.uagr.kmp.course.data.network.model.response.user.UserResponse
 import com.uagr.kmp.course.domain.model.user.UserDataModel
 
+fun UserResponse.toDomain(): UserDataModel =
+    UserDataModel(
+        id = id.orEmpty(),
+        name = name.orEmpty(),
+        email = email.orEmpty(),
+        locale = locale.orEmpty(),
+        currency = currency.orEmpty(),
+        email_verified = email_verified ?: false,
+        isActive = is_active ?: false
+    )
 
 fun UserEntity.toDomain(): UserDataModel =
     UserDataModel(

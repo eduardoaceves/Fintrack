@@ -45,6 +45,8 @@
     <string name="login_create_account">Crear una cuenta</string>
     <string name="login_email_example">example@gmail.com</string>
     <string name="login_password_example">**********</string>
+    <string name="login_wrong_password_length">Longitud de contraseña incorrecta</string>
+    <string name="login_wrong_email_length">Longitud de correo incorrecta</string>
 
     <!-- Register -->
     <string name="register_title">FinTrack</string>

@@ -45,8 +45,8 @@ class AppDataStore(
         dataStore.edit { data -> data[KEY.USER_TOKEN] = token }
     }
     
-    suspend fun saveRefreshToken(token: String) {
-        dataStore.edit { data -> data[KEY.REFRESH_TOKEN] = token }
+    suspend fun saveRefreshToken(refreshToken: String) {
+        dataStore.edit { data -> data[KEY.REFRESH_TOKEN] = refreshToken }
     }
 
     suspend fun saveAccountID(accountId : String) {

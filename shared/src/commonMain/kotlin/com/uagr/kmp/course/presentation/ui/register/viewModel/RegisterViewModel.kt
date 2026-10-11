@@ -13,9 +13,7 @@ import com.uagr.kmp.course.domain.usecase.register.RegisterUserUseCase
 import com.uagr.kmp.course.domain.usecase.register.ValidateRegisterFormResult
 import com.uagr.kmp.course.domain.usecase.register.ValidateRegisterFormUseCase
 import com.uagr.kmp.course.domain.usecase.user.InsertUserAndDeleteUseCase
-import com.uagr.kmp.course.domain.usecase.user.SaveUserTokenUseCase
-import com.uagr.kmp.course.presentation.ui.login.viewmodel.LoginUiEvent
-import com.uagr.kmp.course.utils.constant.Constants
+import com.uagr.kmp.course.domain.usecase.user.SaveUserTokensUseCase
 import com.uagr.kmp.course.utils.constant.NetworkUrl
 import com.uagr.kmp.course.utils.network.NetworkResult
 import com.uagr.kmp.course.utils.operators.StatusLoading
@@ -42,7 +40,7 @@ import org.koin.core.annotation.KoinViewModel
 class RegisterViewModel(
     private val validateRegisterFormUseCase: ValidateRegisterFormUseCase,
     private val insertUserUseCase: InsertUserAndDeleteUseCase,
-    private val saveUserTokenUseCase: SaveUserTokenUseCase,
+    private val saveUserTokensUseCase: SaveUserTokensUseCase,
     private val registerUserUseCase: RegisterUserUseCase,
 ) : ViewModel() {
     
@@ -52,24 +50,29 @@ class RegisterViewModel(
     private var _registerUiEvent = MutableStateFlow<RegisterUiEvent>(RegisterUiEvent.Idle)
     val registerUiEvent: StateFlow<RegisterUiEvent> = _registerUiEvent.asStateFlow()
     
-    fun onNameChanged(name : String) = viewModelScope.launch {
-        if(name.length < Constants.NAME_LENGTH)
-            _registerUiState.update { state -> state.copy(name = name) }
-    }
-    
-    fun onEmailChanged(email : String) = viewModelScope.launch {
-        if(email.length < Constants.EMAIL_LENGTH)
-            _registerUiState.update { state -> state.copy(email = email) }
-    }
-    
-    fun onPasswordChanged(password : String) = viewModelScope.launch {
-        if(password.length < Constants.PASSWORD_LENGTH)
-            _registerUiState.update { state -> state.copy(password = password) }
-    }
-    
-    fun onConfirmPasswordChanged(confirmPassword : String) = viewModelScope.launch {
-        if(confirmPassword.length < Constants.PASSWORD_LENGTH)
-            _registerUiState.update { state -> state.copy(confirmPassword = confirmPassword) }
+    fun onTextChanged(
+        name : String,
+        email : String,
+        password : String,
+        confirmPassword : String
+    ) = viewModelScope.launch {
+        when(validateRegisterFormUseCase.validateLengthOnChange(
+            name = name,
+            email = email,
+            password = password,
+            confirmPassword = confirmPassword
+        )){
+            is ValidateRegisterFormResult.Success -> {
+                _registerUiState.update { state -> state.copy(
+                    name = name,
+                    email = email,
+                    password = password,
+                    confirmPassword = confirmPassword
+                ) }
+                registerFormErrors()
+            }
+            else -> {}
+        }
     }
     
     fun onPasswordVisibilityChanged(isVisible : Boolean) = viewModelScope.launch {
@@ -86,7 +89,7 @@ class RegisterViewModel(
         password : String,
         confirmPassword : String,
     ) = viewModelScope.launch {
-        when(validateRegisterFormUseCase(
+        when(validateRegisterFormUseCase.validateFormOnClick(
             name = name,
             email = email,
             password = password,
@@ -129,6 +132,7 @@ class RegisterViewModel(
                     password = password
                 )
             }
+            else -> {}
         }
     }
     
@@ -179,18 +183,24 @@ class RegisterViewModel(
     }
     
     private fun saveUserToken(tokenData : UserTokensModel?) = viewModelScope.launch{
-        saveUserTokenUseCase(
+        saveUserTokensUseCase.saveUserToken(
             token = tokenData
         ).catch {
             _registerUiState.update { state -> state.copy(isLoading = StatusLoading.DISMISS_LOADING, errorDialog = setErrorDialog()) }
         }.collect {
-            _registerUiState.update { state -> state.copy(
-                isLoading = StatusLoading.DISMISS_LOADING ,
-                errorDialog = setErrorDialog(
-                    title = getString(Res.string.success_title),
-                    message = getString(Res.string.register_sucess),
-                    operationSuccess = true,
-                ))
+            saveUserTokensUseCase.saveUserRefreshToken(
+                token = tokenData
+            ).catch {
+                _registerUiState.update { state -> state.copy(isLoading = StatusLoading.DISMISS_LOADING, errorDialog = setErrorDialog()) }
+            }.collect {
+                _registerUiState.update { state -> state.copy(
+                    isLoading = StatusLoading.DISMISS_LOADING ,
+                    errorDialog = setErrorDialog(
+                        title = getString(Res.string.success_title),
+                        message = getString(Res.string.register_sucess),
+                        operationSuccess = true,
+                    ))
+                }
             }
         }
     }

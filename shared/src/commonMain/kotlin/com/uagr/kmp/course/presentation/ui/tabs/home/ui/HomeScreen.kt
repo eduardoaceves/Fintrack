@@ -60,7 +60,10 @@ fun HomeScreen(
     
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun HomeScreenPreview() {
     SafeScreenContainerTest {

@@ -1,14 +1,11 @@
 /*
- * LazyColumnsBudgets.kt
+ * BudgetsContainer.kt
  * Copyright (c) 2026. All rights reserved
  */
-package com.uagr.kmp.course.presentation.component.LazyColumns
+
+package com.uagr.kmp.course.presentation.component.lazyColumns.budgets
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,7 +21,7 @@ import com.uagr.kmp.course.presentation.component.mock.budgetsDataMock
 import com.uagr.kmp.course.presentation.theme.Dimens
 
 @Composable
-fun LazyColumnsBudgets(
+fun BudgetsLazyColumn(
     budgets: BudgetsModel? = null,
     modifier: Modifier = Modifier
 ){
@@ -32,7 +29,7 @@ fun LazyColumnsBudgets(
         LazyColumn(
             modifier = Modifier
                 .height(Dimens.height500)
-                .padding(all = Dimens.padding16),
+                .padding(all = Dimens.padding8),
             verticalArrangement = Arrangement.spacedBy(
                 space = Dimens.padding16,
                 alignment = Alignment.CenterVertically,
@@ -47,21 +44,19 @@ fun LazyColumnsBudgets(
             }
         }
     } ?: run {
-        /*Column(modifier = Modifier.fillMaxWidth().height(Dimens.height30),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
-            CircularProgressIndicator()
-        }*/
         CircularProgressIndicator()
     }
     
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
-fun LazyColumnsBudgetsPreview() {
+fun BudgetsLazyColumnPreview() {
     SafeScreenContainerTest {
-        LazyColumnsBudgets(
+        BudgetsLazyColumn(
             modifier = Modifier,
             budgets = budgetsDataMock
         )

@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.uagr.kmp.course.domain.model.budgets.BudgetSummaryModel
 import com.uagr.kmp.course.domain.model.budgets.BudgetsModel
-import com.uagr.kmp.course.presentation.component.LazyColumns.LazyColumnsBudgets
+import com.uagr.kmp.course.presentation.component.lazyColumns.budgets.BudgetsLazyColumn
 import com.uagr.kmp.course.presentation.component.card.BudgetCard
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.mock.budgetSummaryDataMock
@@ -81,7 +81,7 @@ fun BudgetScreenContainer(
             color = AppTheme.colors.text.black,
             text = stringResource(Res.string.budget_by_category)
         )
-        LazyColumnsBudgets(
+        BudgetsLazyColumn(
             budgets = budgets,
             modifier = Modifier
         )
@@ -89,7 +89,10 @@ fun BudgetScreenContainer(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun BudgetScreenContainerContainerPreview() {
     SafeScreenContainerTest {

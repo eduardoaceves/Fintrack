@@ -14,6 +14,7 @@ data class TransactionUiState(
     val isSearching : Boolean = false,
     val transactions : TransactionsDataModel? = null,
     val transactionList: List<TransactionItemModel>? = null,
+    val filter : List<TransactionItemModel>? = null,
     val errorDialog : ErrorDialogModel? = null,
     val errorTransactions : Boolean = false,
     val isLoading : StatusLoading = StatusLoading.DISMISS_LOADING,
