@@ -6,6 +6,7 @@ package com.uagr.kmp.course.presentation.ui.tabs.home.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -67,9 +68,10 @@ fun HomeScreenContainer(
             .background(color = AppTheme.colors.backgrounds.canvas)
             .fillMaxSize()
             .verticalScroll(state = scrollState),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
+        //Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
         TextNormal(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Start,
@@ -200,14 +202,14 @@ fun HomeScreenContainer(
             transactions = transactions,
             transactionError = transactionError,
         )
-        Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
+        //Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
         
     }
 }
 
 @Preview(
     showBackground = true,
-    showSystemUi = true,
+    //showSystemUi = true,
 )
 @Composable
 fun HomeScreenContainerPreview() {

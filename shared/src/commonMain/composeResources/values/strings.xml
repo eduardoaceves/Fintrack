@@ -99,6 +99,7 @@
     <string name="goals_description">Convierte objetivos en progreso visible</string>
     <string name="goals_other_golas">Otras metas</string>
     <string name="goals_new_goal">Nueva meta</string>
+    <string name="goals_close_session">Cerrar sesión</string>
 
     <!-- Welcome -->
     <string name="welcome">Welcome</string>

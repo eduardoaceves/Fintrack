@@ -5,6 +5,7 @@
 package com.uagr.kmp.course.presentation.ui.tabs.goals.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,18 +20,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.uagr.kmp.course.presentation.component.buton.CustomButton
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainerTest
 import com.uagr.kmp.course.presentation.component.text.TextNormal
 import com.uagr.kmp.course.presentation.component.text.TextNormalBold
 import com.uagr.kmp.course.presentation.theme.AppTheme
 import com.uagr.kmp.course.presentation.theme.Dimens
 import course.shared.generated.resources.Res
+import course.shared.generated.resources.goals_close_session
 import course.shared.generated.resources.goals_description
 import course.shared.generated.resources.goals_title
+import course.shared.generated.resources.login_button
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun GoalsScreenContainer(){
+fun GoalsScreenContainer(
+    closeSession : () -> Unit = {},
+){
     
     val scrollState = rememberScrollState()
     val focusManager = LocalFocusManager.current
@@ -40,9 +46,10 @@ fun GoalsScreenContainer(){
             .background(color = AppTheme.colors.backgrounds.canvas)
             .fillMaxSize()
             .verticalScroll(state = scrollState),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
+        //Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
         TextNormalBold(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Start,
@@ -58,8 +65,19 @@ fun GoalsScreenContainer(){
             color = AppTheme.colors.text.gray,
             text = stringResource(Res.string.goals_description)
         )
-        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
-        Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height100))
+        
+        CustomButton(
+            modifier = Modifier.height(Dimens.height50),
+            onClick = {
+                closeSession()
+            },
+            backgroundButton = AppTheme.colors.backgrounds.redActive,
+            textColor = AppTheme.colors.backgrounds.white,
+            text = stringResource(Res.string.goals_close_session),
+        )
+        
+        //Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
     }
 }
 

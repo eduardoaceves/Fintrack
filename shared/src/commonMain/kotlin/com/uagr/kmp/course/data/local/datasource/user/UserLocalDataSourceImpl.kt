@@ -35,4 +35,8 @@ class UserLocalDataSourceImpl(
     override suspend fun getUser(): UserDataModel {
         return userDao.getUser().toDomain()
     }
+    
+    override suspend fun deleteAllUsers() {
+        return userDao.deleteAllUsers()
+    }
 }

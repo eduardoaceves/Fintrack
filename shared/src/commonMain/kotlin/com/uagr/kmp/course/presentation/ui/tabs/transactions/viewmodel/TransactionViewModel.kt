@@ -9,7 +9,9 @@ import androidx.lifecycle.viewModelScope
 import com.uagr.kmp.course.domain.mapper.packages.toEntity
 import com.uagr.kmp.course.domain.model.transations.TransactionsDataModel
 import com.uagr.kmp.course.domain.usecase.accounts.GetLocalAccountIdUseCase
+import com.uagr.kmp.course.domain.usecase.transactions.FilterTransactionsUseCase
 import com.uagr.kmp.course.domain.usecase.transactions.GetLastMovesUseCase
+import com.uagr.kmp.course.domain.usecase.user.DeleteAllUsersUseCase
 import com.uagr.kmp.course.utils.constant.Constants
 import com.uagr.kmp.course.utils.constant.NetworkUrl
 import com.uagr.kmp.course.utils.network.NetworkResult
@@ -27,6 +29,8 @@ import org.koin.core.annotation.Factory
 class TransactionViewModel(
     private val getLastMovesUseCase: GetLastMovesUseCase,
     private val getLocalAccountIdUseCase : GetLocalAccountIdUseCase,
+    private val filterTransactionsUseCase : FilterTransactionsUseCase,
+    private val deleteAllUsersUseCase: DeleteAllUsersUseCase
 ) : ViewModel()  {
     
     private var _transactionsUiState = MutableStateFlow(TransactionUiState())
@@ -107,7 +111,15 @@ class TransactionViewModel(
     
     private fun updateFilter(searchText: String){
         if(transactionsUiState.value.transactions != null) {
-           val transactions = transactionsUiState.value.transactions
+            _transactionsUiState.update { state ->
+                state.copy(isLoading = StatusLoading.DISMISS_LOADING,
+                    filter = filterTransactionsUseCase.getFilteredTransactions(
+                        searchText = searchText,
+                        transactions = transactionsUiState.value.transactions
+                    ),
+                )
+            }
+            /*val transactions = transactionsUiState.value.transactions
             val filter = if(searchText.isEmpty()) {
                 transactions?.items
             } else {
@@ -121,7 +133,7 @@ class TransactionViewModel(
                 state.copy(isLoading = StatusLoading.DISMISS_LOADING,
                     filter = filter,
                 )
-            }
+            }*/
         }
     }
     

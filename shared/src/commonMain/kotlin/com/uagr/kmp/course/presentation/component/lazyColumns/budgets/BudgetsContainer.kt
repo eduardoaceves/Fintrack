@@ -28,7 +28,7 @@ fun BudgetsLazyColumn(
     budgets?.let{
         LazyColumn(
             modifier = Modifier
-                .height(Dimens.height500)
+                .height(Dimens.height400)
                 .padding(all = Dimens.padding8),
             verticalArrangement = Arrangement.spacedBy(
                 space = Dimens.padding16,

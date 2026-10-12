@@ -63,7 +63,8 @@ fun TransactionsScreenContainer(
             .background(color = AppTheme.colors.backgrounds.canvas)
             .fillMaxSize()
             .verticalScroll(state = scrollState),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
         Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
         TextNormalBold(

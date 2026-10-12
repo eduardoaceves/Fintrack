@@ -5,6 +5,7 @@
 package com.uagr.kmp.course.presentation.ui.tabs.budget.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,9 +50,10 @@ fun BudgetScreenContainer(
             .background(color = AppTheme.colors.backgrounds.canvas)
             .fillMaxSize()
             .verticalScroll(state = scrollState),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
+        //Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
         TextNormalBold(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Start,
@@ -73,7 +75,7 @@ fun BudgetScreenContainer(
             modifier = Modifier.fillMaxWidth(),
             budgetSummary = budgetSummary,
         )
-        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height35))
+        Spacer(modifier = Modifier.fillMaxWidth().height(Dimens.height20))
         TextNormalBold(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Start,
@@ -85,7 +87,7 @@ fun BudgetScreenContainer(
             budgets = budgets,
             modifier = Modifier
         )
-        Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
+        //Spacer(modifier = Modifier.fillMaxWidth().weight(2f))
     }
 }
 

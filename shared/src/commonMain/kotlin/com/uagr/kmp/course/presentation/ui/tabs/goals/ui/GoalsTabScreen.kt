@@ -11,10 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.uagr.kmp.course.presentation.component.container.SafeScreenContainer
 import com.uagr.kmp.course.presentation.theme.AppTheme
+import com.uagr.kmp.course.presentation.ui.login.navigation.LoginNavigation
 import course.shared.generated.resources.Res
 import course.shared.generated.resources.ic_goals
 import org.jetbrains.compose.resources.painterResource
@@ -36,15 +39,15 @@ object GoalsTabScreen : Tab {
     
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow.parent ?: LocalNavigator.currentOrThrow
         SafeScreenContainer(
             modifier = Modifier.background(color = AppTheme.colors.backgrounds.canvas)
         ) {
-            Box(
-                Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center)
-            {
-                GoalsScreenContainer()
-            }
+            GoalsScreen(
+                closeSession = {
+                    navigator.push(LoginNavigation)
+                }
+            )
         }
     }
     

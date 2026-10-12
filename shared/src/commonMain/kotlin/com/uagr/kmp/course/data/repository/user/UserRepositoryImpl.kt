@@ -48,5 +48,8 @@ class UserRepositoryImpl(
         )
     }.flowOn(context = ioDispatcher)
     
+    override suspend fun deleteAllUsers(): Flow<Unit>  = flow{
+        emit(userLocalDataSource.deleteAllUsers())
+    }.flowOn(context = ioDispatcher)
     
 }

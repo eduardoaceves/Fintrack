@@ -46,7 +46,9 @@ fun CustomButton(
         modifier = modifier
             .fillMaxWidth()
             .height(height = height),
-        colors = ButtonDefaults.buttonColors(contentColor = backgroundButton),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = backgroundButton
+        ),
         enabled = enabled,
         shape = shape,
     ) {
@@ -76,7 +78,7 @@ private fun CustomButtonPreview() {
             verticalArrangement = Arrangement.spacedBy(Dimens.padding16),
         ) {
             CustomButton(
-                backgroundButton = AppTheme.colors.primary,
+                backgroundButton = AppTheme.colors.backgrounds.redActive,
                 textColor = AppTheme.colors.backgrounds.white,
                 text = stringResource(Res.string.example),
             )

@@ -41,7 +41,7 @@ fun TransactionsContainer(
         if(!transactionError){
             transactions?.let {
                 LazyColumn(
-                    modifier = Modifier.fillMaxSize().height(Dimens.height200),
+                    modifier = Modifier.fillMaxSize().height(Dimens.height400),
                     flingBehavior = ScrollableDefaults.flingBehavior()
                 )
                 {
@@ -71,7 +71,8 @@ fun TransactionsContainer(
                     
                 }
             } ?: run {
-                Column(modifier = Modifier.fillMaxWidth(),
+                Column(modifier = Modifier.fillMaxWidth()
+                    .padding(top = Dimens.height20),
                     horizontalAlignment = Alignment.CenterHorizontally) {
                     CircularProgressIndicator()
                 }

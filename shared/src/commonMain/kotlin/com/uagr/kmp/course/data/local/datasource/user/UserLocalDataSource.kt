@@ -14,4 +14,6 @@ interface UserLocalDataSource {
     suspend fun saveRefreshToken(refreshToken : String)
     
     suspend fun getUser(): UserDataModel
+    
+    suspend fun deleteAllUsers()
 }

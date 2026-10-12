@@ -20,4 +20,6 @@ interface UserRepository {
     
     suspend fun getUserRemoteInformation(url : String) : Flow<NetworkResult<UserDataModel>>
     
+    suspend fun deleteAllUsers() : Flow<Unit>
+    
 }
